@@ -9,7 +9,7 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,14 +17,21 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Energy template made with ASTROJS and TAILWINDCSS"
+      content="Les Écuries d'Ulysse - Écurie de propriétaires affiliée à la FFE et labellisée EquuRES au cœur des vignes du Frontonnais dans le Nord Toulousain. Pension, cours, poney-club à Bouloc."
     />
-    <title>Energy template - {title}</title>
+    <title>{title}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/style/custom.css" />
+    <style lang="scss">
+        @use 'webcoreui/styles' as *;
+        @include setup((
+            fontRegular: '/fonts/Inter-Regular.woff2',
+            fontBold: '/fonts/Inter-Bold.woff2'
+        ));
+    </style>
   </head>
   <body
     class="overflow-hidden overflow-y-auto bg-base dark:bg-base-dark text-accent dark:text-accent-light min-h-screen"

@@ -1,200 +1,182 @@
 ---
-import GroupFooterNav from "../components/blocks/GroupFooterNav.astro";
 import Container from "../components/shared/Container.astro";
-import FooterNav from "../components/shared/FooterNav.astro";
 import Paragraph from "../components/shared/Paragraph.astro";
-
-const footerNav1 = [
-  {
-    itemText: "Marketing",
-    itemLink: "#",
-  },
-  {
-    itemText: "Analylitics",
-    itemLink: "#",
-  },
-  {
-    itemText: "Commerce",
-    itemLink: "#",
-  },
-  {
-    itemText: "Insights",
-    itemLink: "#",
-  },
-];
-
-const footerSupport = [
-  {
-    itemText: "Pricing",
-    itemLink: "#",
-  },
-  {
-    itemText: "Guides",
-    itemLink: "#",
-  },
-  {
-    itemText: "FAQ",
-    itemLink: "#",
-  },
-  {
-    itemText: "Contact",
-    itemLink: "#",
-  },
-];
-
-const footerCompany = [
-  {
-    itemText: "About",
-    itemLink: "#",
-  },
-  {
-    itemText: "Blog",
-    itemLink: "#",
-  },
-  {
-    itemText: "Jobs",
-    itemLink: "#",
-  },
-  {
-    itemText: "Parteners",
-    itemLink: "#",
-  },
-  {
-    itemText: "Jobs",
-    itemLink: "#",
-  },
-];
-const footerLegal = [
-  {
-    itemText: "Claim",
-    itemLink: "#",
-  },
-  {
-    itemText: "Privacy",
-    itemLink: "#",
-  },
-  {
-    itemText: "Terms",
-    itemLink: "#",
-  },
-];
+import logoImage from "../images/commun/logo_EcurieUlysse.png";
+import logoHeroku from "../images/commun/logoHeroku.png";
+import logoGandi from "../images/commun/logoGandi.png";
+import logoIonos from "../images/commun/logoIonos.png";
 ---
 
 <div class="relative mt-16 bg-base-200 dark:bg-base-dark-800">
   <footer class="relative pt-28 rounded-t-3xl">
-    <Container className="pb-8 relative overflow-auto ">
-      <div
-        class="grid grid-cols-2 lg:grid-cols-3 lg:items-stretch gap-8 relative"
-      >
-        <div class="col-span-2 lg:col-span-1 h-auto flex flex-col">
-          <div class="h-full">
-            <a href="#" class="relative flex items-center gap-3">
-              <div class="inline-flex text-lg font-semibold text-heading-1">
-                [Company Name]
-              </div>
+    <Container className="pb-8 relative overflow-auto">
+      <div class="space-y-12">
+        <!-- Logo and Contact Info -->
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+          <div class="flex-shrink-0">
+            <a href="/" class="relative flex items-center gap-3">
+              <img
+                src={logoImage.src}
+                alt="Les écuries d'Ulysse"
+                class="h-16 w-auto object-contain"
+              />
             </a>
-            <Paragraph className={"mt-8"}>
-              Elevating Sustainability through Innovative Solutions for a
-              Greener Tomorrow.
-            </Paragraph>
           </div>
-
-          <!-- social links -->
-          <div class="min-h-max flex items-center gap-4 text-heading-3 mt-8">
-            <a href="#" class="transition hover:text-heading-1 hover:scale-105">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="w-5 h-5"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
-                ></path>
-              </svg>
-              <span class="sr-only">social link</span>
-            </a>
-
-            <a href="#" class="transition hover:text-heading-1 hover:scale-105">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="w-5 h-5"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
-                ></path>
-              </svg>
-              <span class="sr-only">social link</span>
-            </a>
-
-            <a href="#" class="transition hover:text-heading-1 hover:scale-105">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="w-5 h-5"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-                ></path>
-              </svg>
-              <span class="sr-only">social link</span>
-            </a>
-
-            <a href="#" class="transition hover:text-heading-1 hover:scale-105">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="w-5 h-5"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                ></path>
-              </svg>
-              <span class="sr-only">social link</span>
-            </a>
+          
+          <div class="flex-1">
+            <h2 class="text-xl font-semibold mb-4 text-heading-1">Coordonnées</h2>
+            <Paragraph className="mb-2">
+              <span class="font-semibold">Les Écuries d'Ulysse</span>
+              <br />
+              421 Chemin des Perrous - 31620 BOULOC
+              <br />
+              Tél. <a href="tel:0675862193" class="hover:text-heading-1 transition">06 75 86 21 93</a>
+              <br />
+              Email: <a href="mailto:contact@lesecuriesdulysse.fr" class="hover:text-heading-1 transition">contact@lesecuriesdulysse.fr</a>
+            </Paragraph>
+            <Paragraph className="mt-4">
+              <span class="font-semibold">Crédit :</span> Les Écuries d'Ulysse, DR
+            </Paragraph>
           </div>
         </div>
 
-        <GroupFooterNav>
-          <FooterNav title={"Company"} navItems={footerCompany} />
-          <FooterNav title={"Solutions"} navItems={footerNav1} />
-        </GroupFooterNav>
+        <!-- Legal Information -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-heading-1">Informations légales</h3>
+            <div class="space-y-3 text-sm">
+              <p>
+                <span class="font-semibold">Les Écuries d'Ulysse</span><br />
+                421 Chemin des Perrous - 31620 BOULOC
+              </p>
+              <p>
+                <span class="font-semibold">Directrice Commerciale :</span><br />
+                Mme Orsini De Mari
+              </p>
+              <p>
+                <span class="font-semibold">Directrice de la publication du site :</span><br />
+                Mme Orsini De Mari
+              </p>
+            </div>
+          </div>
 
-        <GroupFooterNav>
-          <FooterNav title={"Support"} navItems={footerSupport} />
-          <FooterNav title={"Ressources"} navItems={footerLegal} />
-        </GroupFooterNav>
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-heading-1">Refonte, développement et maintenance</h3>
+            <div class="space-y-3 text-sm">
+              <p>
+                <span class="font-semibold">Aline BRAND - </span>
+                <svg class="inline-block w-6 h-6 align-middle mx-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+                  <g id="T">
+                    <g>
+                      <path fill="#ED4353" d="M85.5,162.1c-1.577-6.646-2.917-13.295-4.16-19.945c-1.244-6.65-2.384-13.302-3.443-19.954 c-0.562-3.326-1.028-6.652-1.529-9.979c-0.493-3.327-1.003-6.653-1.431-9.98l-1.341-9.981l-1.24-9.983l-2.07-16.673l19.659,2.107 l52.173,5.593c17.324,1.782,34.662,3.552,51.461,4.614c4.188,0.237,8.329,0.466,12.333,0.553l2.966,0.043l1.453,0.001l0.717-0.004 h0.089h0.045c-0.442-0.001,1.052,0.002-0.98-0.002l0.207-0.012l0.413-0.023l3.106-0.195l3.08-0.225 c8.192-0.637,16.221-1.491,23.997-2.764c15.599-2.51,30.055-6.046,44.35-11.608l38.685-15.051l-9.094,37.027 c-2.049,8.344-4.256,16.66-6.517,24.967c-2.263,8.307-4.608,16.599-6.983,24.885l-7.09,24.866 c-1.189,4.143-2.361,8.289-3.485,12.444c-1.137,4.152-2.289,8.301-3.377,12.462l-4.146,15.863l-10.21-7.609 c-0.063-0.047-0.185-0.117-0.344-0.198l-0.459-0.233c-0.315-0.158-0.642-0.315-0.974-0.467l-2.033-0.909 c-1.375-0.604-2.787-1.17-4.215-1.708c-2.854-1.093-5.779-2.056-8.739-2.92c-5.923-1.729-12.003-2.998-18.136-3.77 c-12.262-1.563-24.762-1.148-36.678,1.329c-5.954,1.255-11.754,3.048-17.263,5.387c-2.759,1.156-5.427,2.495-8.022,3.92 c-2.603,1.41-5.099,2.988-7.498,4.671c-9.636,6.71-17.509,15.315-23.697,24.822c-6.207,9.509-10.87,19.936-14.602,30.672 c-1.035,2.794-1.939,5.49-2.791,8.248c-0.882,2.729-1.691,5.459-2.408,8.191c-1.417,5.47-2.635,10.895-3.464,16.299 c-1.685,10.799-1.811,21.485-0.241,31.598c1.578,10.11,4.758,19.648,9.448,28.229c4.644,8.598,10.711,16.272,17.779,22.79 c7.068,6.506,15.18,11.837,23.818,15.538c8.631,3.695,17.758,5.817,26.688,5.821c1.116,0.01,2.23-0.013,3.339-0.072l0.416-0.022 l0.208-0.013l0.104-0.007c0.063-0.006-0.225,0.04-0.029,0.013l1.208-0.118c0.732-0.077,1.084-0.086,1.79-0.172 c2.528-0.268,5.021-0.624,7.473-1.094c4.905-0.93,9.644-2.273,14.188-4.047c9.098-3.523,17.392-8.918,24.599-16.219 c7.183-7.294,13.255-16.483,17.809-26.942c4.656-10.435,7.806-22.068,9.79-34.24c2.003-12.193,2.722-24.92,2.813-38.008 l4.887-1.057c5.54,12.197,9.438,25.292,11.553,38.982c2.087,13.686,2.284,28.015-0.097,42.499 c-1.265,7.212-3.091,14.487-5.796,21.595c-2.708,7.094-6.104,14.121-10.452,20.69c-8.542,13.24-20.678,24.748-34.676,32.898 c-6.987,4.097-14.412,7.354-21.979,9.854c-3.788,1.236-7.609,2.314-11.449,3.184c-0.883,0.21-2.129,0.456-2.993,0.64l-1.189,0.249 l-1.704,0.307c-2.097,0.367-4.203,0.667-6.313,0.903c-16.911,1.831-33.898-0.56-49.363-6.229 c-15.491-5.666-29.575-14.529-41.385-25.708c-11.824-11.168-21.319-24.712-27.897-39.43c-6.57-14.728-10.249-30.561-11.1-46.204 c-0.891-15.661,0.91-31.079,4.608-45.575c1.855-7.253,4.173-14.3,7.006-21.049c1.407-3.377,2.901-6.694,4.483-9.947 c1.613-3.224,3.33-6.442,5.07-9.492c7.334-12.633,16.564-24.345,27.539-34.21c10.941-9.881,23.538-17.751,36.708-23.286 c13.185-5.569,26.876-8.865,40.476-10.596c13.624-1.751,27.207-1.835,40.7-1.05c6.751,0.407,13.489,1.032,20.246,1.873 c3.379,0.424,6.758,0.917,10.161,1.468c1.7,0.284,3.404,0.588,5.127,0.91l2.603,0.525l1.331,0.29l0.688,0.158 c0.223,0.051,0.483,0.118,0.8,0.208l-14.355,8.254c0.393-4.283,0.72-8.577,1.063-12.868c0.356-4.289,0.665-8.586,0.955-12.887 l1.792-25.795c0.584-8.6,1.199-17.196,1.896-25.776c0.7-8.581,1.453-17.151,2.364-25.695l29.59,21.977 c-8.592,5.163-17.87,9.439-27.412,12.632c-9.544,3.209-19.313,5.354-28.982,6.653c-9.681,1.279-19.256,1.889-28.688,1.986 l-3.531,0.017l-3.506-0.019l-1.879-0.02l-0.937-0.051l-1.853-0.118l-3.641-0.28c-4.802-0.415-9.452-0.925-14.042-1.554 c-18.308-2.477-35.877-5.972-53.366-9.899c-17.484-3.963-34.673-8.386-51.953-13.375l17.588-14.565l-0.999,10.009l-1.1,10.011 c-0.347,3.337-0.776,6.674-1.189,10.012c-0.42,3.337-0.806,6.675-1.288,10.013c-0.898,6.676-1.877,13.353-2.96,20.031 c-1.082,6.678-2.262,13.357-3.678,20.04L85.5,162.1z"></path>
+                    </g>
+                  </g>
+                  <g id="e">
+                    <text transform="matrix(1.1349 0 0 1 321.0859 176.4736)" fill="#F1895C" font-family="'Arimo'" font-size="214.9031">e</text>
+                  </g>
+                  <g id="disque">
+                    <circle id="disque_1_" fill="#ED4353" cx="388.904" cy="250" r="38"></circle>
+                  </g>
+                  <g id="B">
+                    <text transform="matrix(1.1055 0 0 1 331.0078 430.3486)" fill="#F1895C" font-family="'Arimo'" font-size="157.0453">B</text>
+                  </g>
+                </svg>
+                <span class="font-semibold">La Toile d'En Bouyssou</span> – Site réalisé en React et Node
+              </p>
+              <p>
+                <span class="font-semibold">Idée originale :</span> La Graffinerie
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Information -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-heading-1">Informations techniques</h3>
+            <div class="space-y-3 text-sm">
+              <p>
+                Le site <a href="https://lesecuriesdulysse.fr" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.fr</a> utilise une validation de formulaire par captcha et intègre des vidéos Youtube. Google et Youtube utilisent des cookies intersites. En navigant sur le site, l'utilisateur accepte cette technologie.
+              </p>
+              <p>
+                Le site <a href="https://lesecuriesdulysse.fr" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.fr</a> n'utilise pas de cookie publicitaire.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-heading-1">Législation</h3>
+            <div class="space-y-3 text-sm">
+              <p class="font-semibold">Droit d'auteur et propriété intellectuelle</p>
+              <p>
+                Selon la loi du 11 mars 1957 (art.41) et du code de la propriété intellectuelle du 1er juillet 1992, le site internet <a href="https://lesecuriesdulysse.fr" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.fr</a> (textes, éléments graphiques, photographies, etc.) constitue une œuvre protégée en France par le Code de la Propriété intellectuelle, et à l'étranger par les conventions internationales en vigueur sur le droit d'auteur.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hosting Information -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-heading-1">Hébergement</h3>
+            <div class="space-y-4 text-sm">
+              <p>
+                Le site <a href="https://lesecuriesdulysse.fr" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.fr</a> est hébergé chez
+                <img src={logoHeroku.src} alt="Heroku" class="inline-block h-5 w-auto ml-2 align-middle" />
+                <span class="text-xs ml-2">415 Mission Street Suite 300 San Francisco, CA 94105</span>
+              </p>
+              <p>
+                Le domaine <a href="https://lesecuriesdulysse.fr" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.fr</a> est enregistré auprès de
+                <img src={logoIonos.src} alt="Ionos" class="inline-block h-5 w-auto ml-2 align-middle" />
+                <span class="text-xs ml-2">7 Pl. de la Gare, 57200 Sarreguemines</span>
+              </p>
+              <p>
+                La plateforme de réservations <a href="https://lesecuriesdulysse.club" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.club</a> est hébergée chez
+                <img src={logoGandi.src} alt="Gandi" class="inline-block h-5 w-auto ml-2 align-middle" />
+                <span class="text-xs ml-2">63-65 boulevard Masséna 75013 Paris</span>
+              </p>
+              <p class="text-xs mt-2">
+                À ce titre, les données recueillies pour le traitement des réservations en ligne sont détenues dans la base de données de l'application chez Gandi.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-heading-1">Données à caractère personnel</h3>
+            <div class="text-sm">
+              <p>
+                En application de la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, l'internaute dispose du droit d'opposition (art. 26 de la loi), d'accès (art. 34 à 38 de la loi) et de rectification.
+              </p>
+              <p class="mt-3">
+                Pour exercer ce droit vous pouvez vous adresser à :<br />
+                <span class="font-semibold">Les Écuries d'Ulysse</span><br />
+                421 CHEMIN DES PERROUS<br />
+                31620 BOULOC
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </Container>
     <div class="py-2 relative">
       <Container>
-        <div
-          class="flex justify-between items-center gap-6 md:text-lg text-heading-3"
-        >
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 md:text-lg text-heading-3 text-sm">
           <div>
-            &copy; <span id="year"></span> [Company Name]. All right reserved
+            &copy; <span id="year"></span> Les Écuries d'Ulysse. Tous droits réservés.
           </div>
           <div>
-            Made by <a
-              href="https://github.com/vbartalis"
-              target="_blank"
-              class="font-semibold">vbartalis</a
-            >
+            <a href="#mentions-legales" class="hover:text-heading-1 transition">Mentions légales</a>
           </div>
         </div>
       </Container>
     </div>
   </footer>
 </div>
+
+<script>
+  // Set current year
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear().toString();
+  }
+</script>
