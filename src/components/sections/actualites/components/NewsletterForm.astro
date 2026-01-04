@@ -1,0 +1,35 @@
+---
+import Button from "../../../shared/Button.astro";
+import Title2 from "../../../shared/Title2.astro";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`${className}`}>
+  <Title2>Newsletter</Title2>
+  <p class="text-accent-600 dark:text-accent-300 mb-6">
+    Restez informé de nos actualités et événements en vous abonnant à notre
+    newsletter.
+  </p>
+  <form
+    action="#"
+    method="POST"
+    class="flex flex-col sm:flex-row gap-3"
+  >
+    <input
+      type="email"
+      name="email"
+      placeholder="votre.email@exemple.fr"
+      required
+      class="flex-1 px-4 py-3 border border-box-border rounded-lg bg-box-bg dark:bg-base-dark-800 text-accent dark:text-accent-light focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+    />
+    <Button type="submit" color="primary" variant="solid" className="min-w-max">
+      S'abonner
+    </Button>
+  </form>
+</div>
+

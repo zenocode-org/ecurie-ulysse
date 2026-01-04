@@ -1,0 +1,32 @@
+---
+import VideoEmbed from "../../../shared/VideoEmbed.astro";
+import Title2 from "../../../shared/Title2.astro";
+
+export interface Props {
+  title?: string;
+  videos: Array<{
+    title: string;
+    videoId: string;
+  }>;
+  className?: string;
+}
+
+const { title, videos, className = "" } = Astro.props;
+---
+
+<section class={`py-12 md:py-20 ${className}`}>
+  <div class="container mx-auto px-4">
+    {title && <Title2>{title}</Title2>}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {videos.map((video) => (
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-center text-accent dark:text-accent-light">
+            {video.title}
+          </h3>
+          <VideoEmbed videoId={video.videoId} title={video.title} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+

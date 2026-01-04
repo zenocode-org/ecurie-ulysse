@@ -1,0 +1,100 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/shared/Container.astro";
+import Title2 from "../../components/shared/Title2.astro";
+
+export async function getStaticPaths() {
+  const actualites = await getCollection("actualites", ({ data }) => {
+    return data.published === true;
+  });
+
+  return actualites.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+---
+
+<Layout title={`${post.data.title} - Les Écuries d'Ulysse`}>
+  <main class="py-12 md:py-20">
+    <Container size="wide">
+      <article class="max-w-4xl mx-auto">
+        <header class="mb-8">
+          <time
+            class="text-sm text-primary-600 dark:text-primary-400 font-medium"
+            datetime={post.data.date.toISOString()}
+          >
+            {formatDate(post.data.date)}
+          </time>
+          <Title2>{post.data.title}</Title2>
+          {post.data.excerpt && (
+            <p class="text-lg text-accent-600 dark:text-accent-300 mb-6">
+              {post.data.excerpt}
+            </p>
+          )}
+          {post.data.image && (
+            <div class="rounded-lg overflow-hidden shadow-lg mb-8">
+              <img
+                src={post.data.image}
+                alt={post.data.title}
+                class="w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {post.data.tags.map((tag) => (
+                <span
+                  class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
+
+        <div class="markdown-content text-accent dark:text-accent-light [&_p]:mb-4 [&_p]:text-lg [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:mb-4 [&_li]:mb-2 [&_a]:text-primary-600 [&_a]:dark:text-primary-400 [&_a]:hover:underline [&_strong]:font-semibold [&_em]:italic [&_code]:bg-box-bg [&_code]:dark:bg-base-dark-800 [&_code]:px-2 [&_code]:py-1 [&_code]:rounded [&_code]:text-sm [&_pre]:bg-box-bg [&_pre]:dark:bg-base-dark-800 [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-4 [&_blockquote]:border-l-4 [&_blockquote]:border-primary-500 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:my-4 [&_img]:rounded-lg [&_img]:my-4 [&_img]:shadow-lg">
+          <Content />
+        </div>
+
+        <footer class="mt-12 pt-8 border-t border-box-border">
+          <a
+            href="/actualites"
+            class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-5 h-5 mr-2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+            Retour aux actualités
+          </a>
+        </footer>
+      </article>
+    </Container>
+  </main>
+</Layout>
+

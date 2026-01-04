@@ -1,0 +1,43 @@
+---
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import ContactForm from "../../shared/ContactForm.astro";
+import ContactInfo from "../../shared/ContactInfo.astro";
+import MapEmbed from "../../shared/MapEmbed.astro";
+import { contactData } from "./data.ts";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section id="contact" class={`${className}`}>
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>{contactData.title}</Title2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+      <div>
+        <ContactInfo
+          address={contactData.address}
+          phone={contactData.phone}
+          email={contactData.email}
+          website={contactData.website}
+        />
+      </div>
+      <div>
+        <ContactForm />
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <MapEmbed
+        embedUrl={contactData.map.embedUrl}
+        staticImage={contactData.map.staticImage}
+        link={contactData.map.link}
+      />
+    </div>
+  </Container>
+</section>
+

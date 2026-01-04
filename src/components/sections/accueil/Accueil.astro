@@ -1,0 +1,67 @@
+---
+import Container from "../../shared/Container.astro";
+import Title from "../../shared/Title.astro";
+import SubTitle from "../../shared/SubTitle.astro";
+import StatsGrid from "../../shared/StatsGrid.astro";
+import LogoGrid from "../../shared/LogoGrid.astro";
+import WelcomeMessage from "./components/WelcomeMessage.astro";
+import { accueilData } from "./data.ts";
+import { Carousel } from "../../shared/Carousel";
+import SubTitle2 from "../../shared/SubTitle2.astro";
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+
+---
+
+<section id="accueil" class={`${className}`}>
+  
+    <Carousel
+      client:load
+      slides={accueilData.carousel.slides}
+      className="w-screen h-screen"
+      autoplayInterval={5000}
+      showDots={true}
+      showArrows={true}
+    />
+  
+  <div class="text-center px-4 py-8">
+    <Title className="mb-4 drop-shadow-lg">
+      {accueilData.headline}
+    </Title>
+    <SubTitle className="drop-shadow-lg max-w-3xl mx-auto">
+      {accueilData.subheading}
+    </SubTitle>
+    <p class="mt-4 drop-shadow-lg">
+      {accueilData.location} | Tél.{" "}
+      <a
+        href={`tel:${accueilData.phone.replace(/\s/g, "")}`}
+        class="hover:text-primary-300 transition-colors pointer-events-auto"
+      >
+        {accueilData.phone}
+      </a>
+    </p>
+  </div>
+  
+  <Container size="wide" className="py-12 md:py-20">
+    <StatsGrid stats={accueilData.stats} />
+  </Container>
+  
+  <Container size="wide" className="mx-auto flex flex-col items-center justify-center text-center py-12 md:py-20">
+    <SubTitle2>
+      Nos Partenaires et Labels
+    </SubTitle2>
+    <LogoGrid logos={accueilData.logos} />
+  </Container>
+
+  <WelcomeMessage
+    image={accueilData.welcome.image}
+    title={accueilData.welcome.title}
+    message={accueilData.welcome.message}
+    closing={accueilData.welcome.closing}
+    signature={accueilData.welcome.signature}
+  />
+</section>
+

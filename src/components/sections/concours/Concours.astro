@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import BlogCard from "../../shared/BlogCard.astro";
+import Button from "../../shared/Button.astro";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+
+const concoursPosts = await getCollection("concours", ({ data }) => {
+  return data.published === true;
+});
+
+const latestConcours = concoursPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<section id="concours" class={`${className}`}>
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>Concours</Title2>
+    {latestConcours.length > 0 ? (
+      <>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {latestConcours.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              date={post.data.date}
+              excerpt={post.data.excerpt}
+              image={post.data.image}
+              link={`/concours/${post.id}`}
+            />
+          ))}
+        </div>
+        <div class="text-center">
+          <a href="/concours">
+            <Button color="primary" variant="solid">
+              Voir tous les concours
+            </Button>
+          </a>
+        </div>
+      </>
+    ) : (
+      <p class="text-center text-accent-600 dark:text-accent-300">
+        Aucun concours disponible pour le moment.
+      </p>
+    )}
+  </Container>
+</section>
+

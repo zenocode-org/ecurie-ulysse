@@ -1,0 +1,135 @@
+---
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import LazyImage from "../../shared/LazyImage.astro";
+import CavasoftCard from "./components/CavasoftCard.astro";
+import ServiceDetail from "./components/ServiceDetail.astro";
+import ScheduleGrid from "../../shared/ScheduleGrid.astro";
+import ImageGallery from "../../shared/ImageGallery.astro";
+import DownloadCard from "../../shared/DownloadCard.astro";
+import { prestationsData } from "./data.ts";
+import SubTitle2 from "../../shared/SubTitle2.astro";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section id="prestations" class={`${className}`}>
+  <Container size="wide" className="mx-auto flex flex-col items-center justify-center text-center py-12 md:py-20">
+    <SubTitle2>Nos Prestations</SubTitle2>
+    <CavasoftCard
+      title={prestationsData.cavasoft.title}
+      subtitle={prestationsData.cavasoft.subtitle}
+      description={prestationsData.cavasoft.description}
+      features={prestationsData.cavasoft.features}
+      link={prestationsData.cavasoft.link}
+      linkText={prestationsData.cavasoft.linkText}
+    />
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <ServiceDetail
+      title={prestationsData.pension.title}
+      description={prestationsData.pension.description}
+      image={prestationsData.pension.image}
+    />
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>Planning des cours</Title2>
+    <ScheduleGrid schedules={prestationsData.schedule} />
+    <p class="text-center text-accent-600 dark:text-accent-300 mt-6 italic">
+      {prestationsData.scheduleNote}
+    </p>
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>Éveil aux poneys</Title2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <ServiceDetail
+        title={prestationsData.eveilPoneys.title}
+        description={prestationsData.eveilPoneys.description}
+      />
+    <ImageGallery
+      images={prestationsData.eveilPoneys.images.map((img, index) => ({
+        src: typeof img === "string" ? img : img.src,
+        alt: `Éveil aux poneys ${index + 1}`,
+      }))}
+    />
+    </div>
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>Les Galops et Galops Poneys</Title2>
+    <ImageGallery
+      images={prestationsData.galops.images.map((img, index) => ({
+        src: typeof img === "string" ? img : img.src,
+        alt: `Galops ${index + 1}`,
+      }))}
+      className="mb-8"
+    />
+    <div class="text-center">
+      {typeof prestationsData.galops.conseilsParents === "string" ? (
+        <img
+          src={prestationsData.galops.conseilsParents}
+          alt="Conseils pour les parents"
+          class="max-w-2xl mx-auto rounded-lg shadow-lg"
+          loading="lazy"
+        />
+      ) : (
+        <LazyImage
+          src={prestationsData.galops.conseilsParents}
+          alt="Conseils pour les parents"
+          class="max-w-2xl mx-auto rounded-lg shadow-lg"
+        />
+      )}
+    </div>
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>{prestationsData.poneyClub.title}</Title2>
+    <p class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">
+      {prestationsData.poneyClub.subtitle}
+    </p>
+    <p class="text-accent-600 dark:text-accent-300 mb-6">
+      {prestationsData.poneyClub.description}
+    </p>
+    <ImageGallery
+      images={prestationsData.poneyClub.images.map((img, index) => ({
+        src: typeof img === "string" ? img : img.src,
+        alt: `Poney-club scolaire ${index + 1}`,
+      }))}
+    />
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>{prestationsData.anniversaire.title}</Title2>
+    <p class="text-accent-600 dark:text-accent-300 mb-6">
+      {prestationsData.anniversaire.description}
+    </p>
+    <ImageGallery
+      images={prestationsData.anniversaire.images.map((img, index) => ({
+        src: typeof img === "string" ? img : img.src,
+        alt: `Anniversaire ${index + 1}`,
+      }))}
+    />
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>Documents à télécharger</Title2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {prestationsData.documents.map((doc) => (
+        <DownloadCard
+          title={doc.title}
+          description={doc.description}
+          image={doc.image}
+          file={doc.file}
+        />
+      ))}
+    </div>
+  </Container>
+</section>
+

@@ -1,0 +1,52 @@
+---
+export interface Props {
+  embedUrl?: string;
+  staticImage?: string;
+  link?: string;
+  className?: string;
+}
+
+const { embedUrl, staticImage, link, className = "" } = Astro.props;
+---
+
+<div class={`relative w-full ${className}`}>
+  {embedUrl ? (
+    <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-lg">
+      <iframe
+        class="absolute top-0 left-0 w-full h-full border-0"
+        src={embedUrl}
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  ) : staticImage ? (
+    <a
+      href={link || "#"}
+      target={link ? "_blank" : undefined}
+      rel={link ? "noopener noreferrer" : undefined}
+      class="block relative overflow-hidden rounded-lg shadow-lg group"
+    >
+      <img
+        src={staticImage}
+        alt="Carte de localisation"
+        class="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
+      />
+      {link && (
+        <div
+          class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center"
+        >
+          <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 dark:bg-base-dark-900/90 px-4 py-2 rounded-lg text-sm font-medium">
+            Ouvrir dans Google Maps
+          </span>
+        </div>
+      )}
+    </a>
+  ) : (
+    <div class="w-full h-64 bg-base-200 dark:bg-base-dark-700 rounded-lg flex items-center justify-center text-accent-600 dark:text-accent-300">
+      <p>Carte non disponible</p>
+    </div>
+  )}
+</div>
+

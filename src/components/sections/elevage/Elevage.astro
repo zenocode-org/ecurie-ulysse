@@ -1,0 +1,43 @@
+---
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import Paragraph from "../../shared/Paragraph.astro";
+import LazyImage from "../../shared/LazyImage.astro";
+import CtaButton from "../../shared/CtaButton.astro";
+import { elevageData } from "./data.ts";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section id="elevage" class={`${className}`}>
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>{elevageData.title}</Title2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <div>
+        <LazyImage
+          src={elevageData.image}
+          alt="Élevage de Boileau"
+          className="w-32 rounded-lg mb-6"
+        />
+        <Paragraph className="whitespace-pre-line mb-6">
+          {elevageData.description}
+        </Paragraph>
+        <a href={elevageData.cta.link}>
+          <CtaButton>{elevageData.cta.text}</CtaButton>
+        </a>
+      </div>
+      <div>
+        <LazyImage
+          src={elevageData.cartesIlesShetland}
+          alt="Cartes des îles Shetland"
+          className="w-full rounded-lg"
+        />
+      </div>
+    </div>
+  </Container>
+</section>
+

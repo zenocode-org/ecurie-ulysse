@@ -1,0 +1,36 @@
+---
+import type { ImageMetadata } from "astro";
+import LazyImage from "./LazyImage.astro";
+
+export interface Props {
+  logos: Array<{
+    name: string;
+    image: string | ImageMetadata;
+    link?: string;
+  }>;
+  className?: string;
+}
+
+const { logos, className = "" } = Astro.props;
+---
+
+<div class={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 ${className}`}>
+  {logos.map((logo) => (
+    <div class="flex items-center justify-center">
+      {typeof logo.image === "string" ? (
+        <img
+          src={logo.image}
+          alt={logo.name}
+          class="max-h-24 max-w-full object-contain opacity-70"
+          loading="lazy"
+        />
+      ) : (
+        <LazyImage
+          src={logo.image}
+          alt={logo.name}
+          class="max-h-32 max-w-full object-contain opacity-70"
+        />
+      )}
+    </div>
+  ))}
+</div>

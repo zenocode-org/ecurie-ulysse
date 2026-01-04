@@ -1,0 +1,77 @@
+---
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import InstallationCarousel from "./components/InstallationCarousel.astro";
+import FeatureList from "../../shared/FeatureList.astro";
+import { Carousel } from "../../shared/Carousel";
+import LocationCard from "./components/LocationCard.astro";
+import InfoCard from "../../shared/InfoCard.astro";
+import { installationsData } from "./data.ts";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section id="installations" class={`${className}`}>
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>Nos Installations</Title2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-2xl font-semibold mb-6 text-accent dark:text-accent-light">
+          Liste des installations
+        </h3>
+        <FeatureList features={installationsData.features} />
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold mb-6 text-accent dark:text-accent-light">
+          Détails techniques
+        </h3>
+        <FeatureList features={installationsData.technicalDetails} />
+      </div>
+    </div>
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <Carousel
+      client:load
+      slides={installationsData.fullWidthImages.map((img, index) => ({
+        image: img,
+        alt: `Installation ${index + 1}`,
+      }))}
+      className="h-[60vh] md:h-[80vh]"
+      autoplayInterval={5000}
+      showDots={true}
+      showArrows={true}
+    />
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <LocationCard
+        title={installationsData.roomRental.title}
+        description={installationsData.roomRental.description}
+        images={installationsData.roomRental.images}
+      />
+      <LocationCard
+        title={installationsData.studioRental.title}
+        description={installationsData.studioRental.description}
+        images={installationsData.studioRental.images}
+        link={installationsData.studioRental.airbnbLink}
+        linkText="Voir sur Airbnb"
+      />
+    </div>
+  </Container>
+
+  <Container size="wide" className="py-12 md:py-20">
+    <InfoCard
+      title={installationsData.hours.title}
+      content={installationsData.hours.content}
+      icon="clock"
+    />
+  </Container>
+</section>
+

@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/shared/Container.astro";
+import Title2 from "../../components/shared/Title2.astro";
+import BlogCard from "../../components/shared/BlogCard.astro";
+
+const concoursPosts = await getCollection("concours", ({ data }) => {
+  return data.published === true;
+});
+
+const sortedConcours = concoursPosts.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout title="Concours - Les Écuries d'Ulysse">
+  <main class="py-12 md:py-20">
+    <Container size="wide">
+      <Title2>Concours</Title2>
+      {sortedConcours.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {sortedConcours.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              date={post.data.date}
+              excerpt={post.data.excerpt}
+              image={post.data.image}
+              link={`/concours/${post.id}`}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-accent-600 dark:text-accent-300 mt-8">
+          Aucun concours disponible pour le moment.
+        </p>
+      )}
+    </Container>
+  </main>
+</Layout>
+

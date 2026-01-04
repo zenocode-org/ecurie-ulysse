@@ -1,0 +1,23 @@
+---
+export interface Props {
+  videoId: string;
+  title?: string;
+  className?: string;
+}
+
+const { videoId, title = "Video", className = "" } = Astro.props;
+---
+
+<div class={`relative w-full ${className}`}>
+  <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-lg">
+    <iframe
+      class="absolute top-0 left-0 w-full h-full"
+      src={`https://www.youtube.com/embed/${videoId}`}
+      title={title}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+

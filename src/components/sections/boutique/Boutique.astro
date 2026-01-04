@@ -1,0 +1,43 @@
+---
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import SubTitle from "../../shared/SubTitle.astro";
+import ProductCard from "../../shared/ProductCard.astro";
+import DownloadCard from "../../shared/DownloadCard.astro";
+import { boutiqueData } from "./data.ts";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section id="boutique" class={`${className}`}>
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>{boutiqueData.title}</Title2>
+    <SubTitle className="mb-12 text-center">{boutiqueData.subtitle}</SubTitle>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      {boutiqueData.products.map((product) => (
+        <ProductCard
+          title={product.title}
+          price={product.price}
+          images={product.images}
+          sizes={product.sizes}
+          colors={product.colors}
+        />
+      ))}
+    </div>
+
+    <div class="max-w-md mx-auto">
+      <DownloadCard
+        title={boutiqueData.giftCards.title}
+        description={boutiqueData.giftCards.description}
+        image={boutiqueData.giftCards.image}
+        file={boutiqueData.giftCards.file}
+      />
+    </div>
+  </Container>
+</section>
+

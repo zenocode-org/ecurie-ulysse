@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import BlogCard from "../../shared/BlogCard.astro";
+import Button from "../../shared/Button.astro";
+import NewsletterForm from "./components/NewsletterForm.astro";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+
+const actualitesPosts = await getCollection("actualites", ({ data }) => {
+  return data.published === true;
+});
+
+const latestActualites = actualitesPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<section id="actualites" class={`${className}`}>
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>Actualités</Title2>
+    {latestActualites.length > 0 ? (
+      <>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {latestActualites.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              date={post.data.date}
+              excerpt={post.data.excerpt}
+              image={post.data.image}
+              link={`/actualites/${post.id}`}
+            />
+          ))}
+        </div>
+        <div class="text-center mb-12">
+          <a href="/actualites">
+            <Button color="primary" variant="solid">
+              Voir toutes les actualités
+            </Button>
+          </a>
+        </div>
+      </>
+    ) : (
+      <p class="text-center text-accent-600 dark:text-accent-300 mb-12">
+        Aucune actualité disponible pour le moment.
+      </p>
+    )}
+
+    <div class="max-w-2xl mx-auto">
+      <NewsletterForm />
+    </div>
+  </Container>
+</section>
+

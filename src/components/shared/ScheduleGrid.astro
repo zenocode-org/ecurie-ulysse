@@ -1,0 +1,24 @@
+---
+import ScheduleCard from "./ScheduleCard.astro";
+
+export interface Props {
+  schedules: Array<{
+    day: string;
+    schedule: Array<{
+      time: string;
+      type: string;
+      note?: string;
+    }>;
+  }>;
+  className?: string;
+}
+
+const { schedules, className = "" } = Astro.props;
+---
+
+<div class={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${className}`}>
+  {schedules.map((schedule) => (
+    <ScheduleCard day={schedule.day} schedule={schedule.schedule} />
+  ))}
+</div>
+

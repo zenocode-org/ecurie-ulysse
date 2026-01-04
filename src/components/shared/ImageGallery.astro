@@ -1,0 +1,68 @@
+---
+export interface Props {
+  images: Array<{
+    src: string;
+    alt?: string;
+    caption?: string;
+  }>;
+  className?: string;
+}
+
+const { images, className = "" } = Astro.props;
+---
+
+<div class={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ${className}`}>
+  {images.map((image, index) => (
+    <div
+      class="group relative overflow-hidden rounded-lg cursor-pointer"
+      data-lightbox-image={index}
+    >
+      <img
+        src={image.src}
+        alt={image.alt || `Image ${index + 1}`}
+        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+        loading="lazy"
+      />
+      {image.caption && (
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4"
+        >
+          <p class="text-white text-sm">{image.caption}</p>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
+<script>
+  // Simple lightbox functionality
+  const images = document.querySelectorAll("[data-lightbox-image]");
+  images.forEach((img) => {
+    img.addEventListener("click", () => {
+      const src = img.querySelector("img")?.src;
+      if (src) {
+        // Create lightbox overlay
+        const overlay = document.createElement("div");
+        overlay.className =
+          "fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4";
+        overlay.style.display = "flex";
+
+        const fullImage = document.createElement("img");
+        fullImage.src = src;
+        fullImage.className = "max-w-full max-h-full object-contain";
+        fullImage.alt = img.querySelector("img")?.alt || "";
+
+        overlay.appendChild(fullImage);
+
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) {
+            document.body.removeChild(overlay);
+          }
+        });
+
+        document.body.appendChild(overlay);
+      }
+    });
+  });
+</script>
+

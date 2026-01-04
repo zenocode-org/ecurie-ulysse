@@ -1,0 +1,42 @@
+---
+import Container from "../../shared/Container.astro";
+import History from "./components/History.astro";
+import Team from "./components/Team.astro";
+import VideoSection from "./components/VideoSection.astro";
+import DownloadCard from "../../shared/DownloadCard.astro";
+import { presentationData } from "./data.ts";
+
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section id="presentation" class={`${className}`}>
+  <History
+    image={presentationData.history.image}
+    title={presentationData.history.title}
+    content={presentationData.history.content}
+  />
+
+  <Team
+    title={presentationData.team.title}
+    members={presentationData.team.members}
+  />
+
+  <VideoSection
+    title="Nos Vidéos"
+    videos={presentationData.videos}
+  />
+
+  <Container size="wide" className="py-12 md:py-20">
+    <DownloadCard
+      title={presentationData.brochure.title}
+      description={presentationData.brochure.description}
+      image={presentationData.brochure.image}
+      file={presentationData.brochure.file}
+    />
+  </Container>
+</section>
+

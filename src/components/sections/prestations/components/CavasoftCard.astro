@@ -1,0 +1,57 @@
+---
+import Button from "../../../shared/Button.astro";
+import Title2 from "../../../shared/Title2.astro";
+
+export interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  link: string;
+  linkText: string;
+  className?: string;
+}
+
+const { title, subtitle, description, features, link, linkText, className = "" } =
+  Astro.props;
+---
+
+<div
+  class={`p-8 rounded-lg border border-box-border bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-950/30 dark:to-primary-900/30 shadow-lg ${className}`}
+>
+  <div class="flex flex-col items-center justify-center text-center">
+    <Title2>{title}</Title2>
+  </div>
+
+  <p class="text-lg font-semibold text-primary-700 dark:text-primary-300 mb-4">
+    {subtitle}
+  </p>
+  <p class="text-accent-600 dark:text-accent-300 mb-6">{description}</p>
+  <ul class="space-y-2 mb-6 ">
+    {features.map((feature) => (
+      <li class="flex items-center gap-2 text-accent dark:text-accent-light">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="w-5 h-5 text-primary-500"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        {feature}
+      </li>
+    ))}
+  </ul>
+  <a href={link} target="_blank" rel="noopener noreferrer">
+    <Button color="primary" variant="solid">
+      {linkText}
+    </Button>
+  </a>
+</div>
+

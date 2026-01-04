@@ -1,0 +1,43 @@
+---
+export interface Props {
+  day: string;
+  schedule: Array<{
+    time: string;
+    type: string;
+    note?: string;
+  }>;
+  className?: string;
+}
+
+const { day, schedule, className = "" } = Astro.props;
+---
+
+<div
+  class={`p-6 rounded-lg border border-box-border bg-box-bg dark:bg-base-dark-800 shadow-lg hover:shadow-xl transition-all duration-300 ${className}`}
+>
+  <h3 class="text-xl font-semibold mb-4 text-primary-600 dark:text-primary-400">
+    {day}
+  </h3>
+  <div class="space-y-3">
+    {schedule.map((item) => (
+      <div class="border-l-2 border-primary-500 pl-4">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex-1">
+            <p class="font-medium text-accent dark:text-accent-light">
+              {item.type}
+            </p>
+            {item.note && (
+              <p class="text-sm text-accent-600 dark:text-accent-300 mt-1">
+                {item.note}
+              </p>
+            )}
+          </div>
+          <span class="text-sm font-medium text-primary-600 dark:text-primary-400 whitespace-nowrap">
+            {item.time}
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+

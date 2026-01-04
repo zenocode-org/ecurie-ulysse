@@ -1,0 +1,57 @@
+---
+export interface Props {
+  stats: Array<{
+    value: string;
+    unit?: string;
+    description: string;
+    icon?: string;
+  }>;
+  className?: string;
+}
+
+const { stats, className = "" } = Astro.props;
+---
+
+<div class={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 ${className}`}>
+  {stats.map((stat) => (
+    <div
+      class="text-center p-6 rounded-lg border border-box-border bg-box-bg dark:bg-base-dark-800 hover:shadow-lg transition-all duration-300"
+    >
+      {stat.icon && (
+        <div class="mb-4 flex justify-center">
+          <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-primary-600 dark:text-primary-400"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+        </div>
+      )}
+      <div class="mb-2">
+        <span class="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400">
+          {stat.value}
+        </span>
+        <br />
+        {stat.unit && (
+          <span class="text-xl md:text-2xl text-accent-600 dark:text-accent-300 ml-1">
+            {stat.unit}
+          </span>
+        )}
+      </div>
+      <p class="text-sm md:text-base text-accent-600 dark:text-accent-300">
+        {stat.description}
+      </p>
+    </div>
+  ))}
+</div>
+

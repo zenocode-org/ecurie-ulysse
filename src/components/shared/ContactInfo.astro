@@ -1,0 +1,81 @@
+---
+export interface Props {
+  address?: {
+    street?: string;
+    city?: string;
+    postalCode?: string;
+    country?: string;
+  };
+  phone?: string;
+  email?: string;
+  website?: string;
+  className?: string;
+}
+
+const { address, phone, email, website, className = "" } = Astro.props;
+---
+
+<div class={`space-y-6 ${className}`}>
+  {address && (
+    <div>
+      <h3 class="text-lg font-semibold mb-3 text-accent dark:text-accent-light">
+        Adresse
+      </h3>
+      <address class="not-italic text-accent-600 dark:text-accent-300 space-y-1">
+        {address.street && <p>{address.street}</p>}
+        {(address.postalCode || address.city) && (
+          <p>
+            {address.postalCode && `${address.postalCode} `}
+            {address.city}
+          </p>
+        )}
+        {address.country && <p>{address.country}</p>}
+      </address>
+    </div>
+  )}
+
+  {phone && (
+    <div>
+      <h3 class="text-lg font-semibold mb-3 text-accent dark:text-accent-light">
+        Téléphone
+      </h3>
+      <a
+        href={`tel:${phone.replace(/\s/g, "")}`}
+        class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+      >
+        {phone}
+      </a>
+    </div>
+  )}
+
+  {email && (
+    <div>
+      <h3 class="text-lg font-semibold mb-3 text-accent dark:text-accent-light">
+        Email
+      </h3>
+      <a
+        href={`mailto:${email}`}
+        class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+      >
+        {email}
+      </a>
+    </div>
+  )}
+
+  {website && (
+    <div>
+      <h3 class="text-lg font-semibold mb-3 text-accent dark:text-accent-light">
+        Site internet
+      </h3>
+      <a
+        href={website}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+      >
+        {website}
+      </a>
+    </div>
+  )}
+</div>
+
