@@ -3,7 +3,7 @@
 import Navitem from "../components/shared/Navitem.astro";
 import BtnLink from "../components/shared/BtnLink.astro";
 import BtnThemeSwitch from "../components/shared/BtnThemeSwitch.astro";
-import logoImage from "../images/commun/logo_EcurieUlysse.png";
+import logoImage from "../images/commun/logo_EcurieUlysse_cuir.png";
 
 const navItems = [
   {
@@ -45,7 +45,7 @@ const navItems = [
 ];
 ---
 
-<header class="absolute inset-x-0 top-0 z-50 py-6 px-6">
+<header class="absolute inset-x-0 top-0 z-50 py-6 px-6 bg-white">
   <!-- <Container> -->
   <nav class="w-full flex justify-between gap-6 relative">
     <!-- logo -->
@@ -56,7 +56,6 @@ const navItems = [
           <img
             src={logoImage.src}
             alt="Les écuries d'Ulysse"
-            
           />
         </div>
       </a>
@@ -73,7 +72,7 @@ const navItems = [
       class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0"
     >
       <ul
-        class="text-white border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-end lg:items-center"
+        class="text-black border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-end lg:items-center"
       >
         {
           navItems.map((item) => {

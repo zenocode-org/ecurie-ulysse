@@ -40,7 +40,7 @@ const baseUrl = import.meta.env.BASE_URL;
           >
             {formatDate(post.data.date)}
           </time>
-          <Title2 className="mt-2 mb-4">{post.data.title}</Title2>
+          <Title2>{post.data.title}</Title2>
           {post.data.excerpt && (
             <p class="text-lg text-accent-600 dark:text-accent-300 mb-6">
               {post.data.excerpt}
