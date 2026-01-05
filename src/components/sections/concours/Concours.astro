@@ -4,7 +4,7 @@ import Container from "../../shared/Container.astro";
 import Title2 from "../../shared/Title2.astro";
 import BlogCard from "../../shared/BlogCard.astro";
 import Button from "../../shared/Button.astro";
-
+import CtaButton from "../../shared/CtaButton.astro";
 export interface Props {
   className?: string;
 }
@@ -33,15 +33,15 @@ const baseUrl = import.meta.env.BASE_URL;
               date={post.data.date}
               excerpt={post.data.excerpt}
               image={post.data.image}
-              link={`${baseUrl}/concours/${post.id}`}
+              link={`${baseUrl}concours/${post.id}`}
             />
           ))}
         </div>
         <div class="text-center">
-          <a href={`${baseUrl}/concours`}>
-            <Button color="primary" variant="solid">
+          <a href={`${baseUrl}concours`}>
+            <CtaButton>
               Voir tous les concours
-            </Button>
+            </CtaButton>
           </a>
         </div>
       </>

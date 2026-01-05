@@ -5,6 +5,7 @@ import Title2 from "../../shared/Title2.astro";
 import BlogCard from "../../shared/BlogCard.astro";
 import Button from "../../shared/Button.astro";
 import NewsletterForm from "./components/NewsletterForm.astro";
+import CtaButton from "../../shared/CtaButton.astro";
 
 export interface Props {
   className?: string;
@@ -19,6 +20,7 @@ const actualitesPosts = await getCollection("actualites", ({ data }) => {
 const latestActualites = actualitesPosts
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <section id="actualites" class={`${className}`}>
@@ -33,15 +35,15 @@ const latestActualites = actualitesPosts
               date={post.data.date}
               excerpt={post.data.excerpt}
               image={post.data.image}
-              link={`/actualites/${post.id}`}
+              link={`${baseUrl}actualites/${post.id}`}
             />
           ))}
         </div>
         <div class="text-center mb-12">
-          <a href="/actualites">
-            <Button color="primary" variant="solid">
+          <a href={`${baseUrl}actualites`}>
+            <CtaButton>
               Voir toutes les actualités
-            </Button>
+            </CtaButton>
           </a>
         </div>
       </>
