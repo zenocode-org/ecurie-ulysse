@@ -12,6 +12,7 @@ const concoursPosts = await getCollection("concours", ({ data }) => {
 const sortedConcours = concoursPosts.sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime()
 );
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Concours - Les Écuries d'Ulysse">
@@ -26,7 +27,7 @@ const sortedConcours = concoursPosts.sort(
               date={post.data.date}
               excerpt={post.data.excerpt}
               image={post.data.image}
-              link={`/concours/${post.id}`}
+              link={`${baseUrl}/concours/${post.id}`}
             />
           ))}
         </div>
