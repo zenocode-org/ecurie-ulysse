@@ -24,3 +24,4 @@ Grande compétition de dressage dans le cadre du Circuit Régional Occitanie. Ou
 
 - [Affiche Grand Régional Occitanie 2023](/images/concours/GRO_2023.png)
 
+

@@ -20,3 +20,4 @@ Grand concours d'obstacles Amateur Pro dans le cadre de l'Étape As Occitanie. T
 - **Carrière :** 70 x 70 Toubin Clément
 - **Installations :** Grand paddock, obstacles de standing, rond de longe
 
+

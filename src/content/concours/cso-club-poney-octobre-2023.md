@@ -19,3 +19,4 @@ Concours d'obstacles ouvert aux catégories Amateur, Club, Poney et Préparatoir
 - **Carrière :** 70 x 70 Toubin Clément
 - **Installations :** Grand paddock, obstacles de standing, rond de longe
 
+

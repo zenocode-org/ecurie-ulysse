@@ -17,3 +17,4 @@ Concours d'obstacles Club-Poney-Préparatoire qui a rassemblé de nombreux parti
 
 Retour en images sur cette belle journée de compétition avec les cavaliers et leurs montures.
 
+

@@ -27,3 +27,4 @@ const actualites = defineCollection({
 
 export const collections = { concours, actualites };
 
+

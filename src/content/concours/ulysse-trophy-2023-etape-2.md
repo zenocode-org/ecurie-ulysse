@@ -25,3 +25,4 @@ Deuxième étape du challenge Ulysse Trophy 2023. Les cavaliers continuent leur 
 - [Affiche Ulysse Trophy 2023](/images/concours/UlysseTrophy_2023_affiche.png)
 - [Règlement Ulysse Trophy 2023](/images/concours/UlysseTrophy_2023_reglement.png)
 
+

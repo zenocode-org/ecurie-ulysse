@@ -7,7 +7,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), webcore(), react()],
-  site: "https://energy-template.vbartalis.dev",
+  site: "https://zenocode-org.github.io/ecurie-ulysse/",
   output: "static",
   trailingSlash: "ignore",
   vite: {

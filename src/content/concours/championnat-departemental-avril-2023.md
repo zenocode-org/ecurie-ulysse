@@ -25,3 +25,4 @@ Concours d'obstacles dans le cadre du Championnat Départemental, étape du Circ
 - [Affiche Championnat Jumping Tour](/images/concours/cJt.jpg)
 - [Détails Championnat Jumping Tour](/images/concours/cjt_details.jpg)
 
+
