@@ -8,6 +8,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [tailwind(), webcore(), react()],
   site: "https://zenocode-org.github.io/ecurie-ulysse/",
+  base: "/ecurie-ulysse/",
   output: "static",
   trailingSlash: "ignore",
   vite: {

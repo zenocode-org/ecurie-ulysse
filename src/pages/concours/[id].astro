@@ -25,6 +25,8 @@ const formatDate = (date: Date) => {
     day: "numeric",
   });
 };
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${post.data.title} - Les Écuries d'Ulysse`}>
@@ -47,7 +49,7 @@ const formatDate = (date: Date) => {
           {post.data.image && (
             <div class="rounded-lg overflow-hidden shadow-lg mb-8">
               <img
-                src={post.data.image}
+                src={`${baseUrl}${post.data.image}`}
                 alt={post.data.title}
                 class="w-full h-auto object-cover"
                 loading="lazy"

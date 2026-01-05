@@ -12,6 +12,7 @@ const actualitesPosts = await getCollection("actualites", ({ data }) => {
 const sortedActualites = actualitesPosts.sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime()
 );
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Actualités - Les Écuries d'Ulysse">
@@ -26,7 +27,7 @@ const sortedActualites = actualitesPosts.sort(
               date={post.data.date}
               excerpt={post.data.excerpt}
               image={post.data.image}
-              link={`/actualites/${post.id}`}
+              link={`${baseUrl}/actualites/${post.id}`}
             />
           ))}
         </div>

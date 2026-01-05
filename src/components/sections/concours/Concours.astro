@@ -18,6 +18,7 @@ const concoursPosts = await getCollection("concours", ({ data }) => {
 const latestConcours = concoursPosts
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <section id="concours" class={`${className}`}>
@@ -32,12 +33,12 @@ const latestConcours = concoursPosts
               date={post.data.date}
               excerpt={post.data.excerpt}
               image={post.data.image}
-              link={`/concours/${post.id}`}
+              link={`${baseUrl}/concours/${post.id}`}
             />
           ))}
         </div>
         <div class="text-center">
-          <a href="/concours">
+          <a href={`${baseUrl}/concours`}>
             <Button color="primary" variant="solid">
               Voir tous les concours
             </Button>
