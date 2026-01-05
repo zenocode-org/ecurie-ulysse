@@ -4,45 +4,46 @@ import Navitem from "../components/shared/Navitem.astro";
 import BtnLink from "../components/shared/BtnLink.astro";
 import BtnThemeSwitch from "../components/shared/BtnThemeSwitch.astro";
 import logoImage from "../images/commun/logo_EcurieUlysse_cuir.png";
-
+const baseUrl = import.meta.env.BASE_URL;
 const navItems = [
   {
-    href: "#presentation",
+    href: `${baseUrl}/#presentation`,
     text: "Présentation",
   },
   {
-    href: "#installations",
+    href: `${baseUrl}/#installations`,
     text: "Installations",
   },
   {
-    href: "#prestations",
+    href: `${baseUrl}/#prestations`,
     text: "Prestations",
   },
   {
-    href: "#elevage",
+    href: `${baseUrl}/#elevage`,
     text: "Élevage",
   },
   {
-    href: "#concours",
+    href: `${baseUrl}/#concours`,
     text: "Concours",
   },
   {
-    href: "#actualites",
+    href: `${baseUrl}/#actualites`,
     text: "Actualités",
   },
   {
-    href: "#boutique",
+    href: `${baseUrl}/#boutique`,
     text: "Boutique",
   },
   {
-    href: "#contact",
+    href: `${baseUrl}/#contact`,
     text: "Contact",
   },
   {
-    href: "#mentions-legales",
+    href: `${baseUrl}/#mentions-legales`,
     text: "Mentions légales",
   },
 ];
+
 ---
 
 <header class="absolute inset-x-0 top-0 z-50 py-6 px-6 bg-white">
@@ -51,7 +52,7 @@ const navItems = [
     <!-- logo -->
     <div class="min-w-max inline-flex relative">
       <!-- LOGO -->
-      <a href="/" class="relative flex items-center gap-3">
+      <a href={baseUrl} class="relative flex items-center gap-3">
         <div class="h-16 overflow-hidden flex rounded-xl">
           <img
             src={logoImage.src}
@@ -69,7 +70,7 @@ const navItems = [
     </div>
     <div
       data-navbar
-      class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0"
+      class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 border-x border-x-box-border lg:border-x-0 bg-white"
     >
       <ul
         class="text-black border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-end lg:items-center"
@@ -105,15 +106,15 @@ const navItems = [
       >
         <span
           id="line1"
-          class="w-6 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear bg-black dark:bg-white"
+          class="w-6 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear bg-black"
         ></span>
         <span
           id="line2"
-          class="w-6 origin-center mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear bg-black dark:bg-white"
+          class="w-6 origin-center mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear bg-black"
         ></span>
         <span
           id="line3"
-          class="w-6 mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear bg-black dark:bg-white"
+          class="w-6 mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear bg-black"
         ></span>
         <span class="sr-only">togglenav</span>
       </button>
