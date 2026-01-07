@@ -42,7 +42,7 @@ export const installationsData = {
     images: [installs01, installs02, installs03, installs04, locationSalle01, locationSalle02, locationSalle03, locationSalle04],
   },
   studioRental: {
-    title: "Location d'un grand studio cosy avec vue sur les installations",
+    title: "Location d'un grand studio cosy",
     description:
       "Découvrez notre studio disponible sur Airbnb avec vue imprenable sur les installations équestres.",
     images: [studioCarriereCso, studioGene, studioCouchage],

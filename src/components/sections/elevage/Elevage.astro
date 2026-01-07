@@ -11,6 +11,7 @@ export interface Props {
 }
 
 const { className = "" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <section id="elevage" class={`${className}`}>
@@ -26,7 +27,7 @@ const { className = "" } = Astro.props;
         <Paragraph className="whitespace-pre-line mb-6">
           {elevageData.description}
         </Paragraph>
-        <a href={elevageData.cta.link}>
+        <a href={`${baseUrl}${elevageData.cta.link}`}>
           <CtaButton>{elevageData.cta.text}</CtaButton>
         </a>
       </div>

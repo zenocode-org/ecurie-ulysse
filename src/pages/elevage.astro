@@ -1,0 +1,202 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import Title2 from "../components/shared/Title2.astro";
+import Title3 from "../components/shared/Title3.astro";
+import Paragraph from "../components/shared/Paragraph.astro";
+import LazyImage from "../components/shared/LazyImage.astro";
+import VideoEmbed from "../components/shared/VideoEmbed.astro";
+import GalleryCard from "../components/sections/elevage/components/GalleryCard.astro";
+import { elevagePageData } from "../components/sections/elevage/elevagePageData.ts";
+---
+
+<Layout title="Élevage de Boileau - Les Écuries d'Ulysse">
+  <main class="flex flex-col gap-y-20 md:gap-y-40 overflow-hidden py-12 pt-24 md:pt-32">
+    <!-- Hero Section -->
+    <Container size="wide">
+      <Title2>{elevagePageData.title}</Title2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-8">
+        <div class="space-y-6">
+          {elevagePageData.introduction.paragraphs.map((paragraph) => (
+            <Paragraph>{paragraph}</Paragraph>
+          ))}
+        </div>
+        <div>
+          <LazyImage
+            src={elevagePageData.introduction.image}
+            alt="Élevage de Boileau"
+            className="w-full rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </Container>
+
+    <!-- Births 2022 Section -->
+    <Container size="wide">
+      <div class="flex items-center gap-4 mb-8">
+        <Title3>{elevagePageData.births2022.title}</Title3>
+        <img
+          src="/images/commun/emotHeart.png"
+          alt=""
+          width="50"
+          height="50"
+          class="inline-block"
+        />
+      </div>
+      <div class="space-y-12">
+        {elevagePageData.births2022.ponies.map((pony) => (
+          <div class="space-y-4">
+            <div>
+              <Title3 className="mb-2">
+                {pony.name}
+                <span class="text-lg font-normal text-accent-600 dark:text-accent-400">
+                  {" "}
+                  {pony.parents}
+                </span>
+              </Title3>
+              <p class="text-lg text-accent-600 dark:text-accent-400">
+                {pony.birthDate}
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {pony.images.map((img, idx) => (
+                <LazyImage
+                  src={img}
+                  alt={`${pony.name} - Image ${idx + 1}`}
+                  className="w-full rounded-lg shadow-md"
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+
+    <!-- Ponies for Sale Section -->
+    <Container size="wide">
+      <Title3 className="mb-8">{elevagePageData.poniesForSale.title}</Title3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {elevagePageData.poniesForSale.ponies.map((pony) => (
+          <div class="space-y-4">
+            <Title3 className="mb-2">{pony.name}</Title3>
+            <Paragraph>{pony.description}</Paragraph>
+            <p class="text-lg">
+              <span class={pony.sold ? "line-through text-accent-500" : ""}>
+                Prix : {pony.price}
+              </span>
+            </p>
+            <LazyImage
+              src={pony.image}
+              alt={pony.name}
+              className="w-full rounded-lg shadow-md mt-4"
+            />
+          </div>
+        ))}
+      </div>
+    </Container>
+
+    <!-- Breeding 2023 Section -->
+    <Container size="wide">
+      <Title3 className="mb-8">{elevagePageData.breeding2023.title}</Title3>
+      
+      <!-- Breeding Photos Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+        {elevagePageData.breeding2023.images.map((img, idx) => (
+          <LazyImage
+            src={img}
+            alt={`Crumble saillies ${idx + 1}`}
+            className="w-full rounded-lg shadow-md object-cover h-48"
+          />
+        ))}
+      </div>
+
+      <!-- Breeding Information -->
+      <div class="space-y-6 mb-8">
+        {elevagePageData.breeding2023.stallions.map((stallion) => (
+          <Paragraph>
+            <span class="font-semibold">{stallion.name}</span> - {stallion.description}
+          </Paragraph>
+        ))}
+        <Paragraph>{elevagePageData.breeding2023.requirements}</Paragraph>
+        <Paragraph>
+          Tarif : <span class="font-semibold">{elevagePageData.breeding2023.price}</span>
+        </Paragraph>
+      </div>
+    </Container>
+
+    <!-- Stallions Section -->
+    <Container size="wide">
+      <Title3 className="mb-8">{elevagePageData.stallions.title}</Title3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {elevagePageData.stallions.list.map((stallion) => (
+          <div class="space-y-2">
+            <Title3 className="mb-2 text-xl">{stallion.name}</Title3>
+            <Paragraph className="text-base">{stallion.description}</Paragraph>
+          </div>
+        ))}
+      </div>
+    </Container>
+
+    <!-- Mares Section -->
+    <Container size="wide">
+      <Title3 className="mb-8">{elevagePageData.mares.title}</Title3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {elevagePageData.mares.list.map((mare) => (
+          <div class="space-y-2">
+            <Title3 className="mb-2 text-xl">{mare.name}</Title3>
+            <Paragraph className="text-base">{mare.description}</Paragraph>
+          </div>
+        ))}
+      </div>
+    </Container>
+
+    <!-- Video Section -->
+    <Container size="wide">
+      <VideoEmbed
+        videoId={elevagePageData.video.videoId}
+        title={elevagePageData.video.title}
+        className="max-w-4xl mx-auto"
+      />
+    </Container>
+
+    <!-- Gallery Section using ServiceCard style -->
+    <Container size="wide">
+      <Title2>Galerie</Title2>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+        {elevagePageData.gallery.images.map((img) => (
+          <GalleryCard
+            title={img.alt}
+            imageSrc={img.src}
+            alt={img.alt}
+          />
+        ))}
+      </div>
+    </Container>
+
+    <!-- Shetlands Information Section -->
+    <Container size="wide">
+      <Title3 className="mb-8">{elevagePageData.shetlandsInfo.title}</Title3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="space-y-6">
+          {elevagePageData.shetlandsInfo.paragraphs.slice(0, 4).map((paragraph) => (
+            <Paragraph>{paragraph}</Paragraph>
+          ))}
+        </div>
+        <div class="space-y-6">
+          {elevagePageData.shetlandsInfo.paragraphs.slice(4, 8).map((paragraph) => (
+            <Paragraph>{paragraph}</Paragraph>
+          ))}
+          <LazyImage
+            src={elevagePageData.shetlandsInfo.mapImage}
+            alt="Carte des îles Shetland"
+            className="w-full rounded-lg shadow-lg my-6"
+          />
+          {elevagePageData.shetlandsInfo.paragraphs.slice(8).map((paragraph) => (
+            <Paragraph>{paragraph}</Paragraph>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </main>
+</Layout>
+

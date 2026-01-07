@@ -7,6 +7,7 @@ import ServiceDetail from "./components/ServiceDetail.astro";
 import ScheduleGrid from "../../shared/ScheduleGrid.astro";
 import ImageGallery from "../../shared/ImageGallery.astro";
 import DownloadCard from "../../shared/DownloadCard.astro";
+import BtnLink from "../../shared/BtnLink.astro";
 import { prestationsData } from "./data.ts";
 import SubTitle2 from "../../shared/SubTitle2.astro";
 
@@ -15,11 +16,20 @@ export interface Props {
 }
 
 const { className = "" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <section id="prestations" class={`${className}`}>
   <Container size="wide" className="mx-auto flex flex-col items-center justify-center text-center py-12 md:py-20">
     <SubTitle2>Nos Prestations</SubTitle2>
+    <div class="mb-8">
+      <BtnLink
+        href={`${baseUrl}prestations`}
+        text="Découvrir toutes nos prestations"
+        variant="primary"
+        className="mt-4"
+      />
+    </div>
     <CavasoftCard
       title={prestationsData.cavasoft.title}
       subtitle={prestationsData.cavasoft.subtitle}

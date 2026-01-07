@@ -20,6 +20,6 @@ Nous proposons nos poneys au sevrage, débourrés ou avec expérience concours, 
   cartesIlesShetland: cartesIlesShetland,
   cta: {
     text: "Découvrir l'élevage",
-    link: "/elevage",
+    link: "elevage",
   },
 };

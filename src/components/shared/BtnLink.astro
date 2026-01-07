@@ -4,9 +4,10 @@ export interface Props {
   text: string;
   className?: string;
   variant: "primary" | "secondary" | "cta";
+  target?: string;
 }
 
-const { href, text, className, variant } = Astro.props;
+const { href, text, className, variant, target } = Astro.props;
 
 const getThemeStyle = (variant: "primary" | "secondary" | "cta") => {
   if (variant === "primary") {
@@ -41,6 +42,8 @@ const animation = "duration-300 ease-linear";
 
 <a
   href={href}
+  target={target}
+  rel={target === "_blank" ? "noopener noreferrer" : undefined}
   class={` 
     ${base} 
     ${animation}
