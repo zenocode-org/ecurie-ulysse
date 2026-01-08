@@ -11,6 +11,9 @@ import anniversaire01 from "./assets/anniversaire_01.jpg";
 import anniversaire02 from "./assets/anniversaire_02.jpg";
 import anniversaire03 from "./assets/anniversaire_03.jpg";
 import brochureCover from "./assets/1ereDeCouvEqPourTous.jpg";
+import ffeChevalClub from "../accueil/assets/FFE-Logo-Cheval-Club-de-France.png";
+import ffePoneyClub from "../accueil/assets/FFE-poneyClubDeFrance.png";
+import equuRes from "../accueil/assets/equuRes.png";
 
 export const prestationsData = {
   cavasoft: {
@@ -48,9 +51,9 @@ export const prestationsData = {
     description:
       "Les cours groupés et particuliers s'adressent aux cavaliers de tous niveaux à partir de 4 ans. Les horaires sont répartis du mardi au dimanche.",
     logos: [
-      "/images/accueil/footer/FFE-Logo-Cheval-Club-de-France.png",
-      "/images/accueil/footer/FFE-poneyClubDeFrance.png",
-      "/images/accueil/footer/equuRes.png",
+      ffeChevalClub,
+      ffePoneyClub,
+      equuRes,
     ],
   },
   eveilPoneys: {

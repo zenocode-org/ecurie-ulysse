@@ -20,14 +20,13 @@ import logoToubinClement from "../images/commun/logoToubinClement.png";
   <main class="flex flex-col gap-y-20 md:gap-y-40 overflow-hidden py-12 pt-24 md:pt-32">
     <!-- Hero Section -->
     <Container size="wide">
-      <Title2>Nos Prestations</Title2>
       <SubTitle2 className="text-center max-w-3xl mx-auto">
         Découvrez l'ensemble de nos services et prestations pour vous et vos chevaux.
       </SubTitle2>
     </Container>
 
     <!-- Cavasoft Section -->
-    <Container size="wide" className="mx-auto flex flex-col items-center justify-center text-center py-12 md:py-20">
+    <Container size="wide" className="mx-auto flex flex-col items-center justify-center text-center">
       <CavasoftCard
         title={prestationsData.cavasoft.title}
         subtitle={prestationsData.cavasoft.subtitle}
@@ -77,14 +76,22 @@ import logoToubinClement from "../images/commun/logoToubinClement.png";
         {prestationsData.club.description}
       </Paragraph>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        {prestationsData.club.logos.map((logo) => (
+        {prestationsData.club.logos.map((logo, index) => (
           <div class="flex items-center justify-center p-4 bg-box-bg dark:bg-base-dark-800 rounded-lg">
-            <img
-              src={logo}
-              alt="Logo partenaire"
-              class="max-h-20 w-auto object-contain"
-              loading="lazy"
-            />
+            {typeof logo === "string" ? (
+              <img
+                src={logo}
+                alt="Logo partenaire"
+                class="max-h-20 w-auto object-contain"
+                loading="lazy"
+              />
+            ) : (
+              <LazyImage
+                src={logo}
+                alt={`Logo partenaire ${index + 1}`}
+                class="max-h-20 w-auto object-contain"
+              />
+            )}
           </div>
         ))}
       </div>
