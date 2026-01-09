@@ -33,12 +33,12 @@ const baseUrl = import.meta.env.BASE_URL;
               date={post.data.date}
               excerpt={post.data.excerpt}
               image={post.data.image}
-              link={`${baseUrl}concours/${post.id}`}
+              link={`${baseUrl}/concours/${post.id}`}
             />
           ))}
         </div>
         <div class="text-center">
-          <a href={`${baseUrl}concours`}>
+          <a href={`${baseUrl}/concours`}>
             <CtaButton>
               Voir tous les concours
             </CtaButton>

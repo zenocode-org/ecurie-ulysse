@@ -28,7 +28,7 @@ const { embedUrl, staticImage, link, className = "" } = Astro.props;
       class="block relative overflow-hidden rounded-lg shadow-lg group"
     >
       <img
-        src={`${baseUrl}${staticImage}`}
+        src={`${baseUrl}/${staticImage}`}
         alt="Carte de localisation"
         class="w-full h-auto transition-transform duration-300 group-hover:scale-105"
         loading="lazy"

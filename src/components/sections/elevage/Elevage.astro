@@ -27,7 +27,7 @@ const baseUrl = import.meta.env.BASE_URL;
         <Paragraph className="whitespace-pre-line mb-6">
           {elevageData.description}
         </Paragraph>
-        <a href={`${baseUrl}${elevageData.cta.link}`}>
+        <a href={`${baseUrl}/${elevageData.cta.link}`}>
           <CtaButton>{elevageData.cta.text}</CtaButton>
         </a>
       </div>
