@@ -21,6 +21,7 @@ const {
   icon = "download",
   className = "",
 } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <div
@@ -72,7 +73,7 @@ const {
         {description && (
           <p class="text-accent-600 dark:text-accent-300 mb-4">{description}</p>
         )}
-        <a href={file} download target="_blank" rel="noopener noreferrer">
+        <a href={`${baseUrl}/${file}`} download target="_blank" rel="noopener noreferrer">
           <CtaButton className="w-full sm:w-auto">
             Télécharger
           </CtaButton>
