@@ -177,9 +177,9 @@ export const prestationsData = {
     },
     {
       title: "Consulter nos tarifs",
-      description: "Tarifs 2024 disponibles",
+      description: "Tarifs 2026 disponibles",
       image: brochureCover,
-      file: "/documents/tarifsUlysse2024.pdf",
+      file: "/documents/TARIFS SAISON 2026 (du 01 SEPTEMBRE 2025 au 31 AOUT 2026).pdf",
     },
   ],
 };
