@@ -91,32 +91,3 @@ const { className = "" } = Astro.props;
 
   <Button color="primary" variant="solid" className="w-full"> Envoyer </Button>
 </form>
-
-<script>
-  const form = document.getElementById("contact-form");
-  const messageField = document.getElementById(
-    "message",
-  ) as HTMLTextAreaElement;
-  const charCount = document.getElementById("char-count");
-
-  if (messageField && charCount) {
-    messageField.addEventListener("input", () => {
-      const count = messageField.value.length;
-      charCount.textContent = count.toString();
-      if (count > 500) {
-        charCount.classList.add("text-red-500");
-      } else {
-        charCount.classList.remove("text-red-500");
-      }
-    });
-  }
-
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      // Form submission will be handled by backend
-      // For now, just show a message
-      alert("Formulaire soumis! (Backend à configurer)");
-    });
-  }
-</script>
