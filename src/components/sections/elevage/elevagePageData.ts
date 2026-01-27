@@ -1,5 +1,22 @@
 import jMmonShetlad from "./assets/jMmonShetlad.jpg";
 import cartesIlesShetland from "./assets/cartes-Iles-Shetland.jpg";
+import bacchusDeBoileau from "./assets/Elevage/BacchusDeBoileau.png";
+import bacchusDeBoileauEtColinCrumliebank from "./assets/Elevage/BacchusDeBoileauEtColinCrumliebank.png";
+import colinCumliebank from "./assets/Elevage/ColinCumliebank.png";
+import crumbleDeBoileau from "./assets/Elevage/CrumbleDeBoileau.png";
+import crusaderOfBrygarth from "./assets/Elevage/CrusaderOfBrygarth_.png";
+import emberOfTyrieCirceDeBoileau from "./assets/Elevage/EmberOfTyrie-CirceDeBoileau.png";
+import emberOfTyrieEmeraudeDeBoileau from "./assets/Elevage/EmberOfTyrie-EmeraudeDeBoileau.png";
+import emeraudeDeBoileauEpsiloneDeBoileau from "./assets/Elevage/EmeraudeDeBoileau-EpsiloneDeBoileau.png";
+import epsiloneDeBoileauJosieMillOfTowi from "./assets/Elevage/EpsiloneDeBoileau-JosieMillOfTowi.png";
+import epsiloneDeBoileauJosieMillOfTowi02 from "./assets/Elevage/Epsilone_de_Boileau-JosieMillOfTowi02.png";
+import hanathemeDeBoileau from "./assets/Elevage/HanathemeDeBoileau.png";
+import jockCumliebank from "./assets/Elevage/JockCumliebank.png";
+import jokeCumliebankChristieCumliebank from "./assets/Elevage/JokeCumliebank-ChristieCumliebank.png";
+import josieEmeraudeEpsiloneEmber from "./assets/Elevage/JosieEmeraudeEpsiloneEmber.png";
+import voltaireAramisBismuth from "./assets/Elevage/VoltaireAramisBismuth.png";
+import macadamDeCaunes from "./assets/Elevage/macadamDeCaunes.png";
+import macadamDeCaunesChampion from "./assets/Elevage/macadamDeCaunesChampion.png";
 import crumble01 from "../../../images/elevage/crumble/crumble01.jpg";
 import crumble02 from "../../../images/elevage/crumble/crumble02.jpg";
 import crumble03 from "../../../images/elevage/crumble/crumble03.jpg";
@@ -165,26 +182,24 @@ export const elevagePageData = {
     videoId: "UI_4xgCsA2w",
   },
   gallery: {
-    // Gallery images - these will need to be added to the public folder
-    // For now, using placeholder structure
     images: [
-      { src: "/images/galleries/elevage/BacchusDeBoileau.png", alt: "Bacchus de Boileau" },
-      { src: "/images/galleries/elevage/BacchusDeBoileauEtColinCrumliebank.png", alt: "Bacchus de Boileau et Colin Crumliebank" },
-      { src: "/images/galleries/elevage/ColinCumliebank.png", alt: "Colin Cumliebank" },
-      { src: "/images/galleries/elevage/CrumbleDeBoileau.png", alt: "Crumble de Boileau" },
-      { src: "/images/galleries/elevage/CrusaderOfBrygarth_.png", alt: "Crusader of Brygarth" },
-      { src: "/images/galleries/elevage/EmberOfTyrie-CirceDeBoileau.png", alt: "Ember of Tyrie et Circé de Boileau" },
-      { src: "/images/galleries/elevage/EmberOfTyrie-EmeraudeDeBoileau.png", alt: "Ember of Tyrie et Emeraude de Boileau" },
-      { src: "/images/galleries/elevage/EmeraudeDeBoileau-EpsiloneDeBoileau.png", alt: "Emeraude de Boileau et Epsilone de Boileau" },
-      { src: "/images/galleries/elevage/EpsiloneDeBoileau-JosieMillOfTowi.png", alt: "Epsilone de Boileau et Josie Mill of Towi" },
-      { src: "/images/galleries/elevage/Epsilone_de_Boileau-JosieMillOfTowi02.png", alt: "Epsilone de Boileau et Josie Mill of Towi 02" },
-      { src: "/images/galleries/elevage/HanathemeDeBoileau.png", alt: "Hanatheme de Boileau" },
-      { src: "/images/galleries/elevage/JockCumliebank.png", alt: "Jock Cumliebank" },
-      { src: "/images/galleries/elevage/JokeCumliebank-ChristieCumliebank.png", alt: "Joke Cumliebank et Christie Cumliebank" },
-      { src: "/images/galleries/elevage/JosieEmeraudeEpsiloneEmber.png", alt: "Josie, Emeraude, Epsilone et Ember" },
-      { src: "/images/galleries/elevage/VoltaireAramisBismuth.png", alt: "Voltaire, Aramis et Bismuth" },
-      { src: "/images/galleries/elevage/macadamDeCaunes.png", alt: "Macadam de Caunes" },
-      { src: "/images/galleries/elevage/macadamDeCaunesChampion.png", alt: "Macadam de Caunes Champion" },
+      { src: bacchusDeBoileau, alt: "Bacchus de Boileau" },
+      { src: bacchusDeBoileauEtColinCrumliebank, alt: "Bacchus de Boileau et Colin Crumliebank" },
+      { src: colinCumliebank, alt: "Colin Cumliebank" },
+      { src: crumbleDeBoileau, alt: "Crumble de Boileau" },
+      { src: crusaderOfBrygarth, alt: "Crusader of Brygarth" },
+      { src: emberOfTyrieCirceDeBoileau, alt: "Ember of Tyrie et Circé de Boileau" },
+      { src: emberOfTyrieEmeraudeDeBoileau, alt: "Ember of Tyrie et Emeraude de Boileau" },
+      { src: emeraudeDeBoileauEpsiloneDeBoileau, alt: "Emeraude de Boileau et Epsilone de Boileau" },
+      { src: epsiloneDeBoileauJosieMillOfTowi, alt: "Epsilone de Boileau et Josie Mill of Towi" },
+      { src: epsiloneDeBoileauJosieMillOfTowi02, alt: "Epsilone de Boileau et Josie Mill of Towi 02" },
+      { src: hanathemeDeBoileau, alt: "Hanatheme de Boileau" },
+      { src: jockCumliebank, alt: "Jock Cumliebank" },
+      { src: jokeCumliebankChristieCumliebank, alt: "Joke Cumliebank et Christie Cumliebank" },
+      { src: josieEmeraudeEpsiloneEmber, alt: "Josie, Emeraude, Epsilone et Ember" },
+      { src: voltaireAramisBismuth, alt: "Voltaire, Aramis et Bismuth" },
+      { src: macadamDeCaunes, alt: "Macadam de Caunes" },
+      { src: macadamDeCaunesChampion, alt: "Macadam de Caunes Champion" },
     ],
   },
   shetlandsInfo: {

@@ -35,13 +35,6 @@ import { elevagePageData } from "../components/sections/elevage/elevagePageData.
     <Container size="wide">
       <div class="flex items-center gap-4 mb-8">
         <Title3>{elevagePageData.births2022.title}</Title3>
-        <img
-          src="/images/commun/emotHeart.png"
-          alt=""
-          width="50"
-          height="50"
-          class="inline-block"
-        />
       </div>
       <div class="space-y-12">
         {elevagePageData.births2022.ponies.map((pony) => (
@@ -131,7 +124,7 @@ import { elevagePageData } from "../components/sections/elevage/elevagePageData.
         {elevagePageData.stallions.list.map((stallion) => (
           <div class="space-y-2">
             <Title3 className="mb-2 text-xl">{stallion.name}</Title3>
-            <Paragraph className="text-base">{stallion.description}</Paragraph>
+            <Paragraph>{stallion.description}</Paragraph>
           </div>
         ))}
       </div>
@@ -144,7 +137,7 @@ import { elevagePageData } from "../components/sections/elevage/elevagePageData.
         {elevagePageData.mares.list.map((mare) => (
           <div class="space-y-2">
             <Title3 className="mb-2 text-xl">{mare.name}</Title3>
-            <Paragraph className="text-base">{mare.description}</Paragraph>
+            <Paragraph>{mare.description}</Paragraph>
           </div>
         ))}
       </div>
@@ -166,7 +159,7 @@ import { elevagePageData } from "../components/sections/elevage/elevagePageData.
         {elevagePageData.gallery.images.map((img) => (
           <GalleryCard
             title={img.alt}
-            imageSrc={img.src}
+            imageSrc={typeof img.src === "string" ? img.src : img.src.src}
             alt={img.alt}
           />
         ))}
