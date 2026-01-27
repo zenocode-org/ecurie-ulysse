@@ -26,7 +26,7 @@ Ces reconnaissances récompensent notre travail quotidien pour offrir à nos pen
       },
       {
         role: "Enseignants",
-        count: 2,
+        count: 1,
         description: "Cours et formations pour tous niveaux",
       },
       {

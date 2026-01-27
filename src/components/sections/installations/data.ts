@@ -30,7 +30,7 @@ export const installationsData = {
   technicalDetails: [
     "2 carrières en parallèle",
     "Carrière 70m X 70m Toubin-Clément (éclairée, arrosage, sonorisation)",
-    "Carrière 70m X 25m (arrosage intégré)",
+    "Carrière 70m X 25m (arrosage pas intégré)",
     "Manège 30m X 20m (éclairé, arrosage, miroirs, tribune)",
     "Rond de longe 20m",
     "Domaine de 100 hectares (50 de bois)",

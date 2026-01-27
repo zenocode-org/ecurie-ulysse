@@ -12,7 +12,8 @@ import abCert from "./assets/AB_cert_HD.jpg";
 import ffeChevalClub from "./assets/FFE-Logo-Cheval-Club-de-France.png";
 import ffeFlot from "./assets/ffe_flot.png";
 import ffePoneyClub from "./assets/FFE-poneyClubDeFrance.png";
-
+import exploitationHauteValeurEnvironnementale from "./assets/logo-hve.png";
+import qualitEquidesOccitane from "./assets/label-qualit-équidés-occitanie.png";
 export const accueilData = {
   carousel: {
     slides: [
@@ -102,6 +103,14 @@ export const accueilData = {
     {
       name: "FFE Poney Club de France",
       image: ffePoneyClub,
+    },
+    {
+      name: "Exploitation de haute valeur environnementale",
+      image: exploitationHauteValeurEnvironnementale,
+    },
+    {
+      name: "Qualit'Équidés Occitanie",
+      image: qualitEquidesOccitane,
     },
   ],
   welcome: {
