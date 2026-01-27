@@ -4,6 +4,7 @@ import Container from "../components/shared/Container.astro";
 import Title2 from "../components/shared/Title2.astro";
 import Title3 from "../components/shared/Title3.astro";
 import Paragraph from "../components/shared/Paragraph.astro";
+import SubTitle from "../components/shared/SubTitle.astro";
 import LazyImage from "../components/shared/LazyImage.astro";
 import VideoEmbed from "../components/shared/VideoEmbed.astro";
 import GalleryCard from "../components/sections/elevage/components/GalleryCard.astro";
@@ -168,26 +169,31 @@ import { elevagePageData } from "../components/sections/elevage/elevagePageData.
 
     <!-- Shetlands Information Section -->
     <Container size="wide">
-      <Title3 className="mb-8">{elevagePageData.shetlandsInfo.title}</Title3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="space-y-6">
-          {elevagePageData.shetlandsInfo.paragraphs.slice(0, 4).map((paragraph) => (
-            <Paragraph>{paragraph}</Paragraph>
-          ))}
-        </div>
-        <div class="space-y-6">
-          {elevagePageData.shetlandsInfo.paragraphs.slice(4, 8).map((paragraph) => (
-            <Paragraph>{paragraph}</Paragraph>
-          ))}
-          <LazyImage
-            src={elevagePageData.shetlandsInfo.mapImage}
-            alt="Carte des îles Shetland"
-            className="w-full rounded-lg shadow-lg my-6"
-          />
-          {elevagePageData.shetlandsInfo.paragraphs.slice(8).map((paragraph) => (
-            <Paragraph>{paragraph}</Paragraph>
-          ))}
-        </div>
+      <Title3 className="mb-6">{elevagePageData.shetlandsInfo.title}</Title3>
+      <Paragraph className="mb-10 text-lg text-accent-600 dark:text-accent-400 max-w-2xl">
+        {elevagePageData.shetlandsInfo.intro}
+      </Paragraph>
+      <div class="mb-12">
+        <LazyImage
+          src={elevagePageData.shetlandsInfo.mapImage}
+          alt="Carte des îles Shetland"
+          className="w-full max-w-2xl rounded-xl shadow-lg mx-auto"
+        />
+        <p class="text-center text-sm text-accent-500 dark:text-accent-400 mt-2 italic">
+          Les îles Shetland
+        </p>
+      </div>
+      <div class="space-y-10">
+        {elevagePageData.shetlandsInfo.sections.map((section) => (
+          <div class="space-y-4">
+            <SubTitle className="!mb-3">{section.subtitle}</SubTitle>
+            <div class="space-y-4 pl-0 md:pl-4 border-l-0 md:border-l-2 border-accent-200 dark:border-accent-700">
+              {section.paragraphs.map((paragraph) => (
+                <Paragraph>{paragraph}</Paragraph>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </Container>
   </main>

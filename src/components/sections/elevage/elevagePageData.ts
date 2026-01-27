@@ -203,25 +203,45 @@ export const elevagePageData = {
     ],
   },
   shetlandsInfo: {
-    title: "UN MOT SUR LES SHETLANDS",
-    paragraphs: [
-      "Le Shetland est originaire de l'archipel écossais qui porte son nom, situé au large de l'Ecosse et de la Norvège en pleine Mer du Nord.",
-      "Ce poney y broute l'herbe des îles sauvages, balayées par les vents glacés, probablement depuis l'ère glaciaire.",
-      "Les premières preuves de sa présence sur les îles Shetland remontent à l'age de bronze.",
-      "Plusieurs théories tentent d'expliquer l'arrivée du poney sur ces îles perdues.",
-      "La plus probable serait celle des chevaux des steppes eurasiennes qui s'y seraient introduits lors de l'ère glaciaire.",
-      "On pense même que des chevaux espagnols ou arabes s'y seraient échoués après avoir fait naufrage lors des grandes croisades.",
-      "Ceci expliquerait la présence de poneys gris sur certaines îles.",
-      "De plus, les races norvégiennes de chevaux ont très certainement influencé le Shetland tel que nous le connaissons aujourd'hui, car au Moyen-Age, il existait déjà des relations commerciales entre la Norvège et les îles Shetland. Sa petite taille s'explique par le climat et l'environnement particulièrement hostiles qui régnaient sur ces îles.",
-      "En effet, l'organisme des poneys s'est tout simplement réduit afin de résister au mieux à la nourriture pauvre et aux conditions de vie difficiles.",
-      "La taille du poney Shetland, sa rusticité, sa docilité et sa robustesse en font un équidé très complet, et qui répond à bons nombres de besoins.Son caractère docile mais enjoué, son équilibre du à un centre de gravité très bas lui apporte de grandes qualités pour l'équitation d'apprentissage ou la compétition. La maniabilité du shetland, sa morphologie et sa puissance s'adapte parfaitement à l'attelage, discipline ou il excelle particulièrement.",
-      "Le Shetland est une monture idéale pour les enfants. Sa petite taille parfaitement adaptée permet d'établir une réelle confiance entre la monture et son cavalier, d'où va se dégager une énorme complicité. L'apprentissage sous la selle, à l'obstacle, en pony-games, dans les jeux, pour l'attelage, seul, à deux, à quatre, en tandem… Tout lui convient, et même les mini sont excellents !",
-      "Son caractère sociable et sa facilité d'entretien en font également un super poney de compagnie. De nature grégaire, un shetland ne doit jamais vivre seul car l'ennui et la crainte l'useraient à petit feu. Il s'adapte parfaitement à la présence d'autres animaux, à condition que certaines règles sanitaires et alimentaires soient respectées.",
-      "Activité moins connue, mais tellement évidente, le pâturage est un rôle qui lui colle si bien à la peau. Parfois appelé \"tondeuse à gazon\", c'est un animal qui valorise très bien les espaces verts. Cette utilisation rentre parfaitement dans le concept de développement durable que connaît notre société actuellement. Quoi de plus sympa qu'un troupeau qui broute dans nos communes, plutôt que les tondeuses bruyantes.",
-      "Toutes ces possibilités sont autant d'atouts pour notre poney Shetland. A coup sûr, il apportera beaucoup de plaisir à ceux qui en feront le meilleur usage.",
-      "Les élevages français démontrent aujourd'hui la grande qualité de nos poneys et les résultats le prouvent, aussi bien en concours \"modèles et allures\", dans les activités équestres, ou simplement auprès de nous au quotidien.",
-    ],
+    title: "Un mot sur les Shetlands",
+    intro:
+      "Le Shetland, ce poney mythique venu des îles écossaises, possède une histoire fascinante et des qualités qui en font un équidé hors pair.",
     mapImage: cartesIlesShetland,
+    sections: [
+      {
+        subtitle: "Origines & histoire",
+        paragraphs: [
+          "Le Shetland est originaire de l'archipel écossais qui porte son nom, au large de l'Écosse et de la Norvège. Présent depuis l'âge de bronze, il broute l'herbe des îles sauvages, balayées par les vents glacés.",
+          "Plusieurs théories expliquent son arrivée : chevaux des steppes eurasiennes lors de l'ère glaciaire, ou navires espagnols et arabes ayant fait naufrage lors des croisades — ce qui expliquerait la présence de poneys gris. Les échanges commerciaux avec la Norvège au Moyen Âge ont également façonné le Shetland que nous connaissons.",
+        ],
+      },
+      {
+        subtitle: "Une taille adaptée à son milieu",
+        paragraphs: [
+          "Sa petite taille s'explique par un climat et un environnement hostiles. L'organisme des poneys s'est réduit pour résister à la nourriture pauvre et aux conditions de vie difficiles.",
+        ],
+      },
+      {
+        subtitle: "Un équidé complet",
+        paragraphs: [
+          "Rusticité, docilité et robustesse : le Shetland répond à de nombreux besoins. Son caractère enjoué et son centre de gravité bas en font un excellent partenaire pour l'équitation d'apprentissage ou la compétition. En attelage, sa maniabilité et sa puissance lui permettent d'exceller.",
+          "Monture idéale pour les enfants, sa taille favorise une vraie complicité avec le cavalier. Sous la selle, à l'obstacle, en pony-games ou en attelage — seul, à deux ou à quatre — tout lui convient. Même les mini sont excellents !",
+        ],
+      },
+      {
+        subtitle: "Compagnon & partenaire au quotidien",
+        paragraphs: [
+          "Sociable et facile d'entretien, le Shetland fait un super poney de compagnie. Grégaire, il ne doit jamais vivre seul. Il s'adapte bien à la présence d'autres animaux si quelques règles sanitaires et alimentaires sont respectées.",
+          "Moins connue mais évidente : sa valorisation des espaces verts. Parfois surnommé « tondeuse à gazon », il s'inscrit dans une démarche de développement durable — et quel plaisir d'avoir un troupeau qui broute plutôt que des tondeuses bruyantes !",
+        ],
+      },
+      {
+        subtitle: "Qualité à la française",
+        paragraphs: [
+          "Les élevages français démontrent aujourd'hui la grande qualité de nos poneys, en concours « modèles et allures », dans les activités équestres ou simplement au quotidien. Un Shetland apporte beaucoup à ceux qui en font le meilleur usage.",
+        ],
+      },
+    ],
   },
 };
 
