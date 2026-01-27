@@ -127,7 +127,7 @@ export const prestationsData = {
     },
   ],
   scheduleNote: "Les cours particuliers sont sur rdv uniquement en fonction de nos disponibilités.",
-  scheduleSeason: "Planning des cours saison 2024 (du 1er septembre 2023 au 31 août 2024)",
+  scheduleSeason: "Planning des cours saison 2026 (du 1er septembre 2025 au 31 août 2026)",
   galops: {
     images: [galopsTarifs, galops, poneys],
     conseilsParents: conseilsParents,
