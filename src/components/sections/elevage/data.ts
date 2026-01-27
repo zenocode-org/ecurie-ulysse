@@ -3,19 +3,7 @@ import cartesIlesShetland from "./assets/cartes-Iles-Shetland.jpg";
 
 export const elevageData = {
   title: "Élevage de Boileau",
-  description: `Notre élevage de Shetland se distingue par son engagement envers la qualité et le bien-être animal.
-
-**Importation directe des îles Shetland**
-Nous importons directement depuis les îles Shetland, berceau de cette race emblématique.
-
-**Sélection rigoureuse**
-Notre sélection se base sur le mental et la beauté, garantissant des poneys équilibrés et élégants.
-
-**Plein papiers**
-Tous nos poneys sont pleins papiers, du mini au standard, avec une traçabilité complète.
-
-**Vente**
-Nous proposons nos poneys au sevrage, débourrés ou avec expérience concours, selon vos besoins.`,
+  description: `Notre élevage de poneys Shetland se distingue par un engagement fort envers la qualité et le bien-être animal. Nous importons directement nos reproducteurs depuis les îles Shetland, berceau de cette race emblématique, afin de préserver son authenticité. La sélection de nos poneys repose autant sur leur mental que sur leur beauté, ce qui nous permet de proposer des sujets équilibrés, élégants et agréables à vivre. Tous nos poneys sont pleins papiers, du modèle mini au standard, avec une traçabilité complète. Selon vos attentes, ils peuvent être proposés au sevrage, débourrés ou déjà expérimentés en concours.`,
   image: jMmonShetlad,
   cartesIlesShetland: cartesIlesShetland,
   cta: {
