@@ -25,7 +25,7 @@ Ces reconnaissances récompensent notre travail quotidien pour offrir à nos pen
         description: "Soins quotidiens et entretien des installations",
       },
       {
-        role: "Enseignants",
+        role: "Enseignant",
         count: 1,
         description: "Cours et formations pour tous niveaux",
       },
