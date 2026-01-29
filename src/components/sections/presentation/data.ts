@@ -1,5 +1,5 @@
 import ecurieUlysseToulouse from "./assets/ecurieUlysseToulouse.jpg";
-import brochureCover from "./assets/1ereDeCouvEqPourTous.jpg";
+import brochureCover from "./assets/UlysseA4_1ereDeCouv.jpg";
 
 export const presentationData = {
   history: {
@@ -46,10 +46,4 @@ Ces reconnaissances récompensent notre travail quotidien pour offrir à nos pen
       videoId: "8ofiTOIGXJw",
     },
   ],
-  brochure: {
-    title: "Télécharger notre brochure",
-    description: "Découvrez notre établissement en détail",
-    image: brochureCover,
-    file: "/documents/UlysseA4.pdf",
-  },
 };

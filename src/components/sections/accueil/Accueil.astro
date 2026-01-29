@@ -8,6 +8,8 @@ import WelcomeMessage from "./components/WelcomeMessage.astro";
 import { accueilData } from "./data.ts";
 import { Carousel } from "../../shared/Carousel";
 import SubTitle2 from "../../shared/SubTitle2.astro";
+import DownloadCard from "../../shared/DownloadCard.astro";
+import Title2 from "../../shared/Title2.astro";
 export interface Props {
   className?: string;
 }
@@ -44,11 +46,26 @@ const { className = "" } = Astro.props;
       </a>
     </p>
   </div>
+
   
   <Container size="wide" className="py-12 md:py-20">
     <StatsGrid stats={accueilData.stats} />
   </Container>
   
+  <Container size="wide" className="py-12 md:py-20">
+    <Title2>Documents à télécharger</Title2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {accueilData.documents.map((doc) => (
+        <DownloadCard
+          title={doc.title}
+          description={doc.description}
+          image={doc.image}
+          file={doc.file}
+        />
+      ))}
+    </div>
+  </Container>
+
   <Container size="wide" className="mx-auto flex flex-col items-center justify-center text-center py-12 md:py-20">
     <SubTitle2>
       Nos Partenaires et Labels
@@ -63,5 +80,6 @@ const { className = "" } = Astro.props;
     closing={accueilData.welcome.closing}
     signature={accueilData.welcome.signature}
   />
+
 </section>
 

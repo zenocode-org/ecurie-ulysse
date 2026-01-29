@@ -10,7 +10,7 @@ import scolaire02 from "./assets/scolaire_02.png";
 import anniversaire01 from "./assets/anniversaire_01.jpg";
 import anniversaire02 from "./assets/anniversaire_02.jpg";
 import anniversaire03 from "./assets/anniversaire_03.jpg";
-import brochureCover from "./assets/1ereDeCouvEqPourTous.jpg";
+import brochureCover from "./assets/UlysseA4_1ereDeCouv.jpg";
 import ffeChevalClub from "../accueil/assets/FFE-Logo-Cheval-Club-de-France.png";
 import ffePoneyClub from "../accueil/assets/FFE-poneyClubDeFrance.png";
 import equuRes from "../accueil/assets/equuRes.png";

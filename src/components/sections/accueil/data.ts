@@ -14,6 +14,7 @@ import ffeFlot from "./assets/ffe_flot.png";
 import ffePoneyClub from "./assets/FFE-poneyClubDeFrance.png";
 import exploitationHauteValeurEnvironnementale from "./assets/logo-hve.png";
 import qualitEquidesOccitane from "./assets/label-qualit-équidés-occitanie.png";
+import brochureCover from "../../../images/commun/UlysseA4_1ereDeCouv.jpg";
 export const accueilData = {
   carousel: {
     slides: [
@@ -41,7 +42,7 @@ export const accueilData = {
   },
   headline: "Les Écuries d'Ulysse",
   subheading:
-    "Écurie de propriétaires affiliée à la FFE et labellisée EquuRES au cœur des vignes du Frontonnais dans le Nord Toulousain",
+    "Centre Équestre, Poney-Club, Écuries de Propriétaires, Organisateur de Concours et service de Transit pour chevaux.",
   location: "Bouloc (Nord Toulouse)",
   phone: "06 75 86 21 93",
   stats: [
@@ -123,4 +124,25 @@ export const accueilData = {
     closing: "Bonne visite !",
     signature: "Caroline Orsini, Dirigeante des Écuries",
   },
+
+  documents: [
+    {
+      title: "Télécharger notre brochure",
+      description: "Découvrez notre établissement en détail",
+      image: brochureCover,
+      file: "/documents/UlysseA4.pdf",
+    },
+    {
+      title: "Dossier d'inscription 2026",
+      description: "Inscriptions ouvertes toute l'année !",
+      image: brochureCover,
+      file: "/documents/DOSSIER INSCRIPTION saison 2026.pdf",
+    },
+    {
+      title: "Consulter nos tarifs",
+      description: "Tarifs 2026 disponibles",
+      image: brochureCover,
+      file: "/documents/TARIFS SAISON 2026 (du 01 SEPTEMBRE 2025 au 31 AOUT 2026).pdf",
+    },
+  ],
 };
