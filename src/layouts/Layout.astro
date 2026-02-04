@@ -2,12 +2,15 @@
 import Navbar from "./Navbar.astro";
 import Footer from "./Footer.astro";
 import CavasoftButton from "../components/shared/CavasoftButton.astro";
+import ContestBanner from "../components/shared/ContestBanner";
 
 export interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+const concoursPostUrl = `${baseUrl}/concours/planning-concours-2026`;
 ---
 
 <html lang="fr">
@@ -30,6 +33,7 @@ const { title } = Astro.props;
   <body
     class="overflow-hidden overflow-y-auto bg-base dark:bg-base-dark text-accent dark:text-accent-light min-h-screen"
   >
+    <ContestBanner client:load concoursPostUrl={concoursPostUrl} />
     <Navbar />
     <slot />
     <Footer />

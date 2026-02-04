@@ -27,7 +27,7 @@ const baseUrl = import.meta.env.BASE_URL;
               date={post.data.date}
               excerpt={post.data.excerpt}
               image={post.data.image}
-              link={`${baseUrl}/actualites/${post.id}`}
+              link={`${baseUrl}/actualites/${post.id.replace(/\.md$/, "")}`}
             />
           ))}
         </div>
