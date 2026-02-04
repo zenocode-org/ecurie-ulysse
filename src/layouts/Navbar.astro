@@ -34,7 +34,10 @@ const navItems = [
 
 ---
 
-<header class="relative z-50 py-6 px-6 bg-white">
+<header
+  data-navbar-header
+  class="fixed top-0 left-0 right-0 z-50 py-6 px-6 bg-white dark:bg-base-dark-900 transition-transform duration-300 ease-out"
+>
   <!-- <Container> -->
   <nav class="w-full flex justify-between gap-6 relative">
     <!-- logo -->
@@ -58,7 +61,7 @@ const navItems = [
     </div>
     <div
       data-navbar
-      class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 border-x border-x-box-border lg:border-x-0 bg-white"
+      class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 border-x border-x-box-border lg:border-x-0 bg-white dark:bg-base-dark-900"
     >
       <ul
         class="text-black border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-end lg:items-center"
@@ -73,19 +76,19 @@ const navItems = [
       <div
         class="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0"
       >
-        <BtnLink
-          text="Réservation"
-          href="https://lesecuriesdulysse.club/"
-          className="flex justify-center w-full sm:w-max text-lg text-heading-2"
-          variant="cta"
-          target="_blank"
-        />
+        <BtnThemeSwitch variant="primary" />
       </div>
     </div>
 
     <div class="min-w-max flex items-center gap-x-3">
-      <!-- Theme Switch -->
-      <BtnThemeSwitch variant="primary" />
+      <!-- Reservation button - always visible -->
+      <BtnLink
+        text="Réservation"
+        href="https://lesecuriesdulysse.club/"
+        className="flex justify-center text-lg text-heading-2"
+        variant="cta"
+        target="_blank"
+      />
 
       <!-- Navbar toggle -->
       <button
