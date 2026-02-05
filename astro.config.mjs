@@ -12,6 +12,9 @@ export default defineConfig({
   base: "/ecurie-ulysse",
   output: "static",
   trailingSlash: "ignore",
+  redirects: {
+    "/prestations": "/cavalier",
+  },
   vite: {
     css: {
       preprocessorOptions: {

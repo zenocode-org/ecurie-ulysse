@@ -1,0 +1,49 @@
+---
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import CtaButton from "../../shared/CtaButton.astro";
+import LazyImage from "../../shared/LazyImage.astro";
+import { presentationData } from "./data.ts";
+
+const baseUrl = import.meta.env.BASE_URL;
+const historyExcerpt =
+  "Les Écuries d'Ulysse ont été créées en 2005 avec la passion de l'équitation. Situées au cœur des vignes du Frontonnais dans le Nord Toulousain, nos écuries ont évolué pour devenir un établissement reconnu et labellisé.";
+---
+
+<section id="presentation-preview" class="py-12 md:py-20">
+  <Container size="wide">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <Title2>Découvrir les Écuries</Title2>
+        <p class="text-lg text-accent-600 dark:text-accent-300 mb-6">
+          {historyExcerpt}
+        </p>
+        <div class="space-y-2 mb-6">
+          <p class="font-semibold text-heading-1">
+            {presentationData.team.title}
+          </p>
+          <ul class="list-disc list-inside text-accent-600 dark:text-accent-300 space-y-1">
+            {presentationData.team.members.map((member) => (
+              <li>
+                {member.role} — {member.description}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p class="text-accent-600 dark:text-accent-300 mb-6">
+          Découvrez nos vidéos : visite guidée et cours pour tous les âges.
+        </p>
+        <a href={`${baseUrl}/presentation`}>
+          <CtaButton>Découvrir les Écuries</CtaButton>
+        </a>
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-lg">
+        <LazyImage
+          src={presentationData.history.image}
+          alt="Les Écuries d'Ulysse"
+          class="w-full h-auto object-cover"
+        />
+      </div>
+    </div>
+  </Container>
+</section>

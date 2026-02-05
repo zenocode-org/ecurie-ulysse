@@ -1,7 +1,7 @@
 ---
 title: "Planning des Concours 2026"
 date: 2026-01-01
-image: "/images/concours/next_contests2026.jpg"
+image: "/images/concours/ulysse-trophy.jpg"
 excerpt: "Découvrez le calendrier des concours CSO Club Poney Amateur organisés aux Écuries d'Ulysse pour la saison 2026."
 tags: ["planning", "concours", "saison", "2026"]
 published: true
@@ -21,6 +21,7 @@ Nous avons le plaisir de vous annoncer les prochaines dates de concours CSO Club
 - **11 octobre** — CSO Club Poney Amateur
 - **8 novembre** — CSO Club Poney Amateur
 
+![calendrier concours 2026](/ecurie-ulysse/images/concours/next_contests2026.jpg)
 ### Informations pratiques
 
 Retrouvez toutes les informations détaillées sur nos concours et les modalités d'inscription sur notre page Facebook [Ulysse Contest](https://www.facebook.com/lesecuriesdulysse.fr).

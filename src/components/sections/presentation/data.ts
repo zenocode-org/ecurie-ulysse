@@ -1,9 +1,8 @@
-import ecurieUlysseToulouse from "./assets/ecurieUlysseToulouse.jpg";
-import brochureCover from "./assets/UlysseA4_1ereDeCouv.jpg";
+import poneyPresentation from "./assets/poney-presentation.jpg";
 
 export const presentationData = {
   history: {
-    image: ecurieUlysseToulouse,
+    image: poneyPresentation,
     title: "Notre Histoire",
     content: `Les Écuries d'Ulysse ont été créées en 2005 avec la passion de l'équitation et le désir de créer un lieu d'exception pour les chevaux et leurs propriétaires.
 

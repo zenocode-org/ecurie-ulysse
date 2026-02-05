@@ -1,0 +1,137 @@
+---
+import Container from "../../shared/Container.astro";
+import Title2 from "../../shared/Title2.astro";
+import LazyImage from "../../shared/LazyImage.astro";
+import ServiceDetail from "../prestations/components/ServiceDetail.astro";
+import ScheduleGrid from "../../shared/ScheduleGrid.astro";
+import ImageGallery from "../../shared/ImageGallery.astro";
+import DownloadCard from "../../shared/DownloadCard.astro";
+import CtaButton from "../../shared/CtaButton.astro";
+import { prestationsData } from "../prestations/data.ts";
+import { accueilData } from "../accueil/data.ts";
+import SubTitle2 from "../../shared/SubTitle2.astro";
+---
+
+<section id="classes-pony" class="py-12 md:py-20">
+  <Container size="wide">
+    <SubTitle2 className="mb-12">Cours et Poney-Club</SubTitle2>
+
+    <!-- Poney-Club scolaire -->
+    <div class="mb-16">
+      <Title2>{prestationsData.poneyClub.title}</Title2>
+      <p
+        class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400"
+      >
+        {prestationsData.poneyClub.subtitle}
+      </p>
+      <p class="text-accent-600 dark:text-accent-300 mb-6">
+        {prestationsData.poneyClub.description}
+      </p>
+      <ImageGallery
+        images={prestationsData.poneyClub.images.map((img, index) => ({
+          src: typeof img === "string" ? img : img.src,
+          alt: `Poney-club scolaire ${index + 1}`,
+        }))}
+      />
+    </div>
+
+    <!-- Éveil aux poneys -->
+    <div class="mb-16">
+      <Title2>{prestationsData.eveilPoneys.title}</Title2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <ServiceDetail
+          title={prestationsData.eveilPoneys.title}
+          description={prestationsData.eveilPoneys.description}
+        />
+        <ImageGallery
+          images={prestationsData.eveilPoneys.images.map((img, index) => ({
+            src: typeof img === "string" ? img : img.src,
+            alt: `Éveil aux poneys ${index + 1}`,
+          }))}
+        />
+      </div>
+    </div>
+
+    <!-- Galops -->
+    <div class="mb-16">
+      <Title2>Les Galops et Galops Poneys</Title2>
+      <ImageGallery
+        images={prestationsData.galops.images.map((img, index) => ({
+          src: typeof img === "string" ? img : img.src,
+          alt: `Galops ${index + 1}`,
+        }))}
+        className="mb-8"
+      />
+      <div class="text-center">
+        {
+          typeof prestationsData.galops.conseilsParents === "string" ? (
+            <img
+              src={prestationsData.galops.conseilsParents}
+              alt="Conseils pour les parents"
+              class="max-w-2xl mx-auto rounded-lg shadow-lg"
+              loading="lazy"
+            />
+          ) : (
+            <LazyImage
+              src={prestationsData.galops.conseilsParents}
+              alt="Conseils pour les parents"
+              class="max-w-2xl mx-auto rounded-lg shadow-lg"
+            />
+          )
+        }
+      </div>
+    </div>
+
+    <!-- Anniversaire -->
+    <div class="mb-16">
+      <Title2>{prestationsData.anniversaire.title}</Title2>
+      <p class="text-accent-600 dark:text-accent-300 mb-6">
+        {prestationsData.anniversaire.description}
+      </p>
+      <ImageGallery
+        images={prestationsData.anniversaire.images.map((img, index) => ({
+          src: typeof img === "string" ? img : img.src,
+          alt: `Anniversaire ${index + 1}`,
+        }))}
+      />
+    </div>
+
+    <!-- Planning -->
+    <div class="mb-16">
+      <Title2>{prestationsData.scheduleSeason}</Title2>
+      <ScheduleGrid schedules={prestationsData.schedule} />
+      <p class="text-center text-accent-600 dark:text-accent-300 mt-6 italic">
+        {prestationsData.scheduleNote}
+      </p>
+      
+    </div>
+        <!-- Reservation CTA -->
+        <div class="text-center mb-16">
+          <a
+            href="https://lesecuriesdulysse.club/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <CtaButton>Réserver un cours</CtaButton>
+          </a>
+        </div>
+
+    <!-- Documents -->
+    <div class="mb-16">
+      <Title2>Documents à télécharger</Title2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          accueilData.documents.map((doc) => (
+            <DownloadCard
+              title={doc.title}
+              description={doc.description}
+              image={doc.image}
+              file={doc.file}
+            />
+          ))
+        }
+      </div>
+    </div>
+    
+  </Container>
+</section>

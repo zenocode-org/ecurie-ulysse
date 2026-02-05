@@ -1,0 +1,134 @@
+---
+import type { ImageMetadata } from "astro";
+
+export interface Props {
+  slides: Array<{
+    image: string | ImageMetadata;
+    alt?: string;
+    subtitle?: string;
+  }>;
+  className?: string;
+  autoplayInterval?: number;
+  /** "cover" fills the container (may crop). "contain" shows full image (may letterbox). */
+  objectFit?: "cover" | "contain";
+}
+
+const { slides, className = "", autoplayInterval = 5000, objectFit = "cover" } = Astro.props;
+
+const getImageSrc = (image: string | ImageMetadata): string => {
+  if (typeof image === "string") return image;
+  return image.src;
+};
+---
+
+<div class={`relative w-full overflow-hidden ${className}`} data-carousel data-carousel-id="inst">
+  <div class="relative w-full h-full min-h-[60vh] md:min-h-[80vh]">
+    {slides.map((slide, index) => (
+      <div
+        class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 ${index === 0 ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+        data-index={index}
+      >
+        <img
+          src={getImageSrc(slide.image)}
+          alt={slide.alt || `Slide ${index + 1}`}
+          class={`w-full h-full ${objectFit === "contain" ? "object-contain" : "object-cover"}`}
+          loading={index === 0 ? "eager" : "lazy"}
+        />
+        {slide.subtitle && (
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
+            <p class="text-white text-xl md:text-2xl font-medium text-center">
+              {slide.subtitle}
+            </p>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+
+  <!-- Dots -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+    {slides.map((_, index) => (
+      <button
+        type="button"
+        class={`carousel-dot transition-all duration-300 rounded-full w-3 h-3 ${index === 0 ? "bg-white w-8" : "bg-white/50 hover:bg-white/80"}`}
+        data-index={index}
+        aria-label={`Aller au slide ${index + 1}`}
+      />
+    ))}
+  </div>
+
+  <!-- Arrows -->
+  <button
+    type="button"
+    class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-300 z-20"
+    aria-label="Slide précédent"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+    </svg>
+  </button>
+  <button
+    type="button"
+    class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-300 z-20"
+    aria-label="Slide suivant"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+</div>
+
+<script define:vars={{ slideCount: slides.length, autoplayInterval }}>
+  document.querySelectorAll('[data-carousel]').forEach((container) => {
+    const slidesEl = container.querySelectorAll('.carousel-slide');
+    if (!slidesEl.length) return;
+
+  let activeIndex = 0;
+  let autoPlayTimer = null;
+
+  const slides = slidesEl;
+  const dots = container.querySelectorAll('.carousel-dot');
+  const prevBtn = container.querySelector('.carousel-prev');
+  const nextBtn = container.querySelector('.carousel-next');
+
+  function showSlide(index) {
+    activeIndex = ((index % slideCount) + slideCount) % slideCount;
+    slides.forEach((s, i) => {
+      s.classList.toggle('opacity-100', i === activeIndex);
+      s.classList.toggle('z-10', i === activeIndex);
+      s.classList.toggle('opacity-0', i !== activeIndex);
+      s.classList.toggle('z-0', i !== activeIndex);
+    });
+    dots.forEach((d, i) => {
+      d.classList.toggle('bg-white', i === activeIndex);
+      d.classList.toggle('w-8', i === activeIndex);
+      d.classList.toggle('bg-white/50', i !== activeIndex);
+      d.classList.toggle('w-3', i !== activeIndex);
+    });
+  }
+
+  function next() {
+    showSlide(activeIndex + 1);
+    resetAutoPlay();
+  }
+
+  function prev() {
+    showSlide(activeIndex - 1);
+    resetAutoPlay();
+  }
+
+  function resetAutoPlay() {
+    if (autoPlayTimer) clearTimeout(autoPlayTimer);
+    autoPlayTimer = setTimeout(next, autoplayInterval);
+  }
+
+  prevBtn?.addEventListener('click', prev);
+  nextBtn?.addEventListener('click', next);
+  dots.forEach((dot, i) => dot.addEventListener('click', () => {
+    showSlide(i);
+    resetAutoPlay();
+  }));
+
+  autoPlayTimer = setTimeout(next, autoplayInterval);
+  });
+</script>

@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import CavalierCarousel from "../components/sections/cavalier/CavalierCarousel.astro";
+import CavasoftCard from "../components/sections/prestations/components/CavasoftCard.astro";
+import { prestationsData } from "../components/sections/prestations/data.ts";
+---
+
+<Layout title="Cavalier - Les Écuries d'Ulysse">
+  <main class="flex flex-col gap-y-20 md:gap-y-40 overflow-hidden py-12 pt-24 md:pt-32">
+    <Container size="wide" className="mx-auto flex flex-col items-center justify-center max-w-2xl">
+      <CavasoftCard
+      title={prestationsData.cavasoft.title}
+      subtitle={prestationsData.cavasoft.subtitle}
+      description={prestationsData.cavasoft.description}
+      features={prestationsData.cavasoft.features}
+      link={prestationsData.cavasoft.link}
+      linkText={prestationsData.cavasoft.linkText}
+      />
+    </Container>
+      <Container size="wide" className="mx-auto flex flex-col items-center justify-center max-w-2xl">
+      <CavalierCarousel />
+    </Container>
+  </main>
+</Layout>

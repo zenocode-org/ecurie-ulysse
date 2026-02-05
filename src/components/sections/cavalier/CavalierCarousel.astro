@@ -1,0 +1,21 @@
+---
+import CarouselAstro from "../../shared/CarouselAstro.astro";
+import chevalSautConcours from "./assets/cheval-saut-concours.jpg";
+import unChevalConcours from "./assets/un-cheval-concours.jpg";
+import cavalierConcours from "./assets/cavalier-concours.jpg";
+
+const slides = [
+  { image: chevalSautConcours, alt: "Cheval en saut lors d'un concours" },
+  { image: unChevalConcours, alt: "Cheval en concours" },
+  { image: cavalierConcours, alt: "Cavalier en concours" },
+];
+---
+
+<div class="w-full bg-neutral-900">
+  <CarouselAstro
+    slides={slides}
+    className="min-h-[60vh] md:min-h-[80vh]"
+    autoplayInterval={5000}
+    objectFit="contain"
+  />
+</div>

@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import Title2 from "../components/shared/Title2.astro";
+import StatsGrid from "../components/shared/StatsGrid.astro";
+import History from "../components/sections/presentation/components/History.astro";
+import Team from "../components/sections/presentation/components/Team.astro";
+import VideoSection from "../components/sections/presentation/components/VideoSection.astro";
+import LocationCard from "../components/sections/installations/components/LocationCard.astro";
+import InfoCard from "../components/shared/InfoCard.astro";
+import FeatureList from "../components/shared/FeatureList.astro";
+import CarouselAstro from "../components/shared/CarouselAstro.astro";
+import { accueilData } from "../components/sections/accueil/data.ts";
+import { presentationData } from "../components/sections/presentation/data.ts";
+import { installationsData } from "../components/sections/installations/data.ts";
+import { prestationsData } from "../components/sections/prestations/data.ts";
+import SubTitle2 from "../components/shared/SubTitle2.astro";
+---
+
+<Layout title="Présentation - Les Écuries d'Ulysse">
+  <main class="flex flex-col gap-y-20 md:gap-y-40 overflow-hidden py-12 pt-24 md:pt-32">
+    <Container size="wide">
+      <Title2>Présentation des Écuries</Title2>
+      <StatsGrid stats={accueilData.stats} className="mt-12" />
+    </Container>
+
+    <History
+      image={presentationData.history.image}
+      title={presentationData.history.title}
+      content={presentationData.history.content}
+    />
+
+    <Team
+      title={presentationData.team.title}
+      members={presentationData.team.members}
+    />
+
+    <VideoSection
+      title="Nos Vidéos"
+      videos={presentationData.videos}
+    />
+
+    <Container size="wide">
+      <SubTitle2>Nos Installations</SubTitle2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 text-accent dark:text-accent-light">
+            Liste des installations
+          </h3>
+          <FeatureList features={installationsData.features} />
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-6 text-accent dark:text-accent-light">
+            Détails techniques
+          </h3>
+          <FeatureList features={installationsData.technicalDetails} />
+        </div>
+      </div>
+    </Container>
+
+    <div class="w-full py-12 md:py-20">
+      <CarouselAstro
+        slides={installationsData.carousel.images.map((img, index) => ({
+          image: img,
+          alt: `Installation ${index + 1}`,
+        }))}
+        className="h-[60vh] md:h-[80vh]"
+        autoplayInterval={5000}
+      />
+    </div>
+
+    <History
+      image={prestationsData.pension.image}
+      title={prestationsData.pension.title}
+      content={prestationsData.pension.description}
+    />
+
+    <Container size="wide">
+      <SubTitle2>Locations</SubTitle2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+        <LocationCard
+          title={installationsData.roomRental.title}
+          description={installationsData.roomRental.description}
+          images={installationsData.roomRental.images}
+        />
+        <LocationCard
+          title={installationsData.studioRental.title}
+          description={installationsData.studioRental.description}
+          images={installationsData.studioRental.images}
+          link={installationsData.studioRental.airbnbLink}
+          linkText="Voir sur Airbnb"
+        />
+      </div>
+    </Container>
+
+    <Container size="wide">
+      <InfoCard
+        title={installationsData.hours.title}
+        content={installationsData.hours.content}
+        icon="clock"
+      />
+    </Container>
+  </main>
+</Layout>

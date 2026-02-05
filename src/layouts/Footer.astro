@@ -1,8 +1,10 @@
 ---
 import Container from "../components/shared/Container.astro";
+import LogoGrid from "../components/shared/LogoGrid.astro";
 import logoImage from "../images/commun/logo_EcurieUlysse.png";
 import logoGandi from "../images/commun/logoGandi.png";
 import logoIonos from "../images/commun/logoIonos.png";
+import { accueilData } from "../components/sections/accueil/data.ts";
 ---
 
 <div class="relative mt-16 bg-base-200 dark:bg-base-dark-800">
@@ -44,14 +46,9 @@ import logoIonos from "../images/commun/logoIonos.png";
           </div>
 
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-heading-1">Refonte, développement et maintenance</h3>
-            <div class="space-y-3 text-sm">
-              <p>
-                <a href="https://www.linkedin.com/company/zenocode" target="_blank" rel="noopener noreferrer" class="font-semibold hover:text-heading-1 transition">Zenocode SAS</a>
-              </p>
-              <p>
-                <span class="font-semibold">Idée originale :</span> La Graffinerie
-              </p>
+            <h3 class="text-lg font-semibold mb-4 text-heading-1">Nos Partenaires et Labels</h3>
+            <div class="mb-8">
+              <LogoGrid logos={accueilData.logos} className="grid-cols-3 md:grid-cols-5 lg:grid-cols-10" />
             </div>
           </div>
         </div>
@@ -61,6 +58,9 @@ import logoIonos from "../images/commun/logoIonos.png";
           <div>
             <h3 class="text-lg font-semibold mb-4 text-heading-1">Informations techniques</h3>
             <div class="space-y-3 text-sm">
+              <p>
+                Developpement et maintenance par <a href="https://www.linkedin.com/company/zenocode" target="_blank" rel="noopener noreferrer" class="font-semibold hover:text-heading-1 transition">Zenocode SAS</a>
+              </p>
               <p>
                 Le site <a href="https://lesecuriesdulysse.fr" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.fr</a> utilise une validation de formulaire par captcha et intègre des vidéos Youtube. Google et Youtube utilisent des cookies intersites. En navigant sur le site, l'utilisateur accepte cette technologie.
               </p>
@@ -88,6 +88,9 @@ import logoIonos from "../images/commun/logoIonos.png";
             <div class="space-y-4 text-sm">
               <p>
                 Le site <a href="https://lesecuriesdulysse.fr" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.fr</a> est hébergé sur Cloudflare.
+                <span class="text-xs">
+                  101 TOWNSEND ST, SAN FRANCISCO, ÉTATS-UNIS
+                </span>
               </p>
               <p>
                 Le domaine <a href="https://lesecuriesdulysse.fr" class="hover:text-heading-1 transition font-semibold">lesecuriesdulysse.fr</a> est enregistré auprès de
@@ -122,14 +125,11 @@ import logoIonos from "../images/commun/logoIonos.png";
         </div>
       </div>
     </Container>
-    <div class="py-2 relative">
+    <div class="py-8 relative">
       <Container>
         <div class="flex flex-col md:flex-row justify-between items-center gap-6 md:text-lg text-heading-3 text-sm">
           <div>
             &copy; <span id="year"></span> Les Écuries d'Ulysse. Tous droits réservés.
-          </div>
-          <div>
-            <a href="#mentions-legales" class="hover:text-heading-1 transition">Mentions légales</a>
           </div>
         </div>
       </Container>
